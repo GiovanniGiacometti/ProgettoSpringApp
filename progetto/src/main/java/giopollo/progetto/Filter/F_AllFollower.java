@@ -10,6 +10,7 @@ import giopollo.progetto.Model.Parsing;
 public class F_AllFollower {
 
 	public static List<Follower> apply(Parsing p) {
+		
 		Follower f = null;
 		List<Follower> lf = new ArrayList<Follower>();
 		if ( p.users.size() > 0)

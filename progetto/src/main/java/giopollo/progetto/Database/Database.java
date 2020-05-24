@@ -5,14 +5,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import giopollo.progetto.Model.Follower;
 import giopollo.progetto.Model.Parsing;
-import giopollo.progetto.Service.Service;
+
 
 
 
@@ -39,7 +34,7 @@ public class Database {
 					data+= line;
 				}
 				} catch (IOException e) {
-					System.out.println(e.getClass().getCanonicalName() + "Errore -> Operazione di I/O interrotte");	
+					System.out.println("Errore -> Operazione di I/O interrotte");	
 				} finally {
 					in.close();
 				}
@@ -49,7 +44,8 @@ public class Database {
 				p = obj.readValue(data, Parsing.class);
 				}
 				catch (IOException e) {
-						e.printStackTrace();
+						
+						System.out.println("ciao");
 					}
 				
 				return p;		
