@@ -10,32 +10,25 @@ import giopollo.progetto.Model.*;
 @org.springframework.stereotype.Service
 public class Service {
 	
-	public static List<Follower> getFollower (String url) 
+	public List<Follower> getFollower (String url) 
 	{
-		Parsing p = Database.apiDownload(url);
-		return F_AllFollower.apply(p);
+		return F_AllFollower.apply( Database.apiDownload(url));
 	}
 
 	
-	public static List<String> getWord(String url, String word)
+	public List<String> getWord(String url, String word)
 	{
-		Parsing p = Database.apiDownload(url);
-		List<String> l = null;
-		try
-		{
-			l =  F_Word_in_Location.apply(p, word);
-			return l;
-		}
-		catch(E_wordNotFound e)
-		{
-			System.out.print(e.getMessage());
-			return null;
-		}
+		return F_Word_in_Location.apply( Database.apiDownload(url), word);
 	}
 
 
-	public static HashMap<String, Integer> getOcc(String url) {
+	public HashMap<String, Integer> getOcc(String url) {
+		return F_requency.apply(Database.apiDownload(url));
+	}
+
+
+	public List<String> getMetadata(String url) {
 		Parsing p = Database.apiDownload(url);
-		return F_requency.apply(p);
+		return p.getMetadata();
 	}	
 }

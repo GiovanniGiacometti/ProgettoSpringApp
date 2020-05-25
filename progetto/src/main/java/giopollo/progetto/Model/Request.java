@@ -1,16 +1,16 @@
 package giopollo.progetto.Model;
 
 public class Request {
-	public String name;
+	public String user;
 	public String number;
 	public String word = "";
 	
-	public String getName() {
-		return name;
+	public String getUser() {
+		return user;
 	}
 	
-	public void setName(String name) {
-		this.name = name;
+	public void setUser(String user) {
+		this.user = user;
 	}
 	
 	public String getNumber() {
