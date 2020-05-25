@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import giopollo.progetto.Exception.E_wordNotFound;
 import giopollo.progetto.Model.Request;
 import giopollo.progetto.Service.Service;
 
@@ -45,6 +46,10 @@ public class Controller {
 	}
 	
 	
+	@ExceptionHandler(E_wordNotFound.class)
+	public String handleException(E_wordNotFound e) {
+	    return e.getMessage();
+	}
 	
 	
 	

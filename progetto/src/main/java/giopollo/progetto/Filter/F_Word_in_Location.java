@@ -17,7 +17,7 @@ public class F_Word_in_Location {
 				if(word.equals(p.users.get(i).get("location")))
 					lloc.add(p.users.get(i).get("name"));
 		
-		if(lloc.isEmpty()) throw new E_wordNotFound(HttpStatus.BAD_REQUEST,"Nessun follower ha questa parola nella descrizione!");
+		if(lloc.isEmpty()) throw new E_wordNotFound("Nessun follower ha questa parola nella descrizione!");
 		return lloc;
 	}
 
