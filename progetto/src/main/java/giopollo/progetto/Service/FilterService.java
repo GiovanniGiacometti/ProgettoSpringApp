@@ -22,16 +22,10 @@ public class FilterService {
 		ObjectMapper obj = new ObjectMapper();
 		
 		try {
-			
 			hm = obj.readValue(filter, HashMap.class);
-			
 		} catch (JsonMappingException e) {
-			
 			e.printStackTrace();
-			
 		} catch (JsonProcessingException e) {
-			
-			
 			e.printStackTrace();
 		}
 		
