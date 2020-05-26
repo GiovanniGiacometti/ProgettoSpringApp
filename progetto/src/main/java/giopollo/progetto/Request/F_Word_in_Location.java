@@ -1,4 +1,4 @@
-package giopollo.progetto.Filter;
+package giopollo.progetto.Request;
 
 import java.util.ArrayList;
 import java.util.List;

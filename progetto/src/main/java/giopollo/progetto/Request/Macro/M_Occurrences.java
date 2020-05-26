@@ -1,9 +1,9 @@
-package giopollo.progetto.Filter;
+package giopollo.progetto.Request.Macro;
 
 import java.util.HashMap;
 import giopollo.progetto.Model.Parsing;
 
-public class F_requency {
+public class M_Occurrences {
 	public static HashMap<String,Integer> apply(Parsing p)
 	{
 		HashMap<String,Integer> map = new HashMap<String,Integer>();

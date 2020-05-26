@@ -13,11 +13,7 @@ public class Parsing {
 		public String previous_cursor_str;
 		public String total_count; 
 		
-		public List<String> getMetadata() {
-			List<String> keys = new ArrayList<String>();
-			keys.addAll(users.get(0).keySet());
-			return keys;
-		}
+		
 
 	}
 
