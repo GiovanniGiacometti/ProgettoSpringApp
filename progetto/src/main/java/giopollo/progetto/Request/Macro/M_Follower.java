@@ -3,8 +3,8 @@ package giopollo.progetto.Request.Macro;
 import java.util.ArrayList;
 import java.util.List;
 
+import giopollo.progetto.Database.Parsing;
 import giopollo.progetto.Model.Follower;
-import giopollo.progetto.Model.Parsing;
 
 	public class M_Follower {
 

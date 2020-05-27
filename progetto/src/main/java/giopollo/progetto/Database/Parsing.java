@@ -1,4 +1,4 @@
-package giopollo.progetto.Model;
+package giopollo.progetto.Database;
 
 import java.util.ArrayList;
 import java.util.HashMap;

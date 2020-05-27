@@ -1,60 +1,80 @@
 package giopollo.progetto.Service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
+import giopollo.progetto.Database.Parsing;
 import giopollo.progetto.Model.Follower;
-import giopollo.progetto.Model.Parsing;
+import giopollo.progetto.Request.Filter.F_Between;
 import giopollo.progetto.Request.Filter.F_Greater;
+import giopollo.progetto.Request.Filter.F_Lower;
+import giopollo.progetto.Request.Filter.F_Word;
+import giopollo.progetto.Request.Filter.F_FullLocation;
 
 public class FilterService {
 
-	
-	public static List<Follower> apply(Parsing p, String filter) {
+	public static List<Follower> number(List<Follower> lista, Parsing p, HashMap<String,Object> hmBody) throws RuntimeException {
 		
-		
-		HashMap<String,Integer> hm = new HashMap<String,Integer>();
-		ObjectMapper obj = new ObjectMapper();
-		
-		try {
-			hm = obj.readValue(filter, HashMap.class);
-		} catch (JsonMappingException e) {
-			e.printStackTrace();
-		} catch (JsonProcessingException e) {
-			e.printStackTrace();
-		}
-		
-		List<Follower> lista = new ArrayList<Follower>();
-		
-		String operator = (String) hm.keySet().toArray()[0];
-		
+		String operator = (String) hmBody.keySet().toArray()[0];
 		switch(operator)
 		{
 			case("$gt"):
-			{	
-				lista = F_Greater.apply(lista,hm.get("$gt"),p);
+			{
+				if(hmBody.get(operator) instanceof Integer) {
+					int a = (int) hmBody.get(operator);
+					lista = F_Greater.apply(lista, a, p);
+				} else throw new RuntimeException();
 				break;
 			}
-			
-			default :
-				lista = null;
+			case("$bt"):
+			{
+				if(hmBody.get(operator) instanceof List<?>) { 
+					List<Integer> b = (List<Integer>) hmBody.get(operator);
+					lista = F_Between.apply(lista, b, p);
+				} else throw new RuntimeException();
+				break;
+			}
+			case("$lt"):
+			{
+				if(hmBody.get(operator) instanceof Integer) {
+					int a = (int) hmBody.get(operator);
+					lista = F_Lower.apply(lista, a, p);
+				} else throw new RuntimeException();
+				break;
+			}
 		}
 		
+		
 		return lista;
+	}
+	
+public static List<Follower> word(List<Follower> lista, Parsing p, HashMap<String,Object> hmBody) throws RuntimeException {
+		
+		String operator = (String) hmBody.keySet().toArray()[0];
+		switch(operator)
+		{
+			case("$word"):
+			{
+				if(hmBody.get(operator) instanceof String) {
+					String a = (String) hmBody.get(operator);
+					lista = F_Word.apply(lista, a, p);
+				} else throw new RuntimeException();
+				break;
+			}
+			case("$full"):
+			{
+				if(hmBody.get(operator) instanceof String) {
+					String a = (String) hmBody.get(operator);
+					lista = F_FullLocation.apply(lista, a, p);
+				} else throw new RuntimeException();
+				break;
+			}
+		
+		}
 		
 		
-
+		return lista;
 	}
 
 	
-	
 }
-
-
-
-

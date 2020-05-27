@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import giopollo.progetto.Model.Parsing;
 
 
 
