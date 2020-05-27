@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 
-public class Database {
+public class Download {
 	
 	public static Parsing apiDownload(String url){
 		

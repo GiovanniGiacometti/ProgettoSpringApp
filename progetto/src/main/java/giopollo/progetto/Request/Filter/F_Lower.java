@@ -6,8 +6,9 @@ import java.util.List;
 import giopollo.progetto.Database.Parsing;
 import giopollo.progetto.Model.Follower;
 
-public class F_Lower {
-	public static List<Follower> apply (List<Follower> lista, int a , Parsing p)
+public class F_Lower implements Filter<Integer> {
+
+	public List<Follower> apply (List<Follower> lista, Integer a , Parsing p)
 	{
 		for(HashMap<String,String> hm : p.users) 
 		{
@@ -20,5 +21,7 @@ public class F_Lower {
 		}
 		return lista;
 	}
+
+
 
 }

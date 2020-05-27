@@ -1,15 +1,13 @@
 package giopollo.progetto.Request.Filter;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import giopollo.progetto.Database.Parsing;
 import giopollo.progetto.Exception.E_wordNotFound;
 import giopollo.progetto.Model.Follower;
 
-public class F_FullLocation {
+public class F_FullLocation implements Filter<String>{
 
-	public static List<Follower> apply(List<Follower> lista, String word, Parsing p) {	
+	public List<Follower> apply(List<Follower> lista, String word, Parsing p) {	
 		for(int i=0; i<p.users.size();i++)
 				if(word.equals(p.users.get(i).get("location")))
 				{

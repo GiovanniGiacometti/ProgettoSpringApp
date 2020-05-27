@@ -7,9 +7,9 @@ import giopollo.progetto.Database.Parsing;
 import giopollo.progetto.Model.Follower;
 
 
-public class F_Between{
+public class F_Between implements Filter<List<Integer>>{
 
-	public static List<Follower> apply(List<Follower> lista, List<Integer> b, Parsing p) {
+	public List<Follower> apply(List<Follower> lista, List<Integer> b, Parsing p) {
 		for(HashMap<String,String> hm : p.users) 
 		{
 			String s = hm.get("location");
@@ -21,4 +21,6 @@ public class F_Between{
 		}
 		return lista;
 	}
+
+	
 	}

@@ -7,9 +7,9 @@ import giopollo.progetto.Database.Parsing;
 import giopollo.progetto.Model.Follower;
 
 
-public class F_Greater{
+public class F_Greater implements Filter<Integer>{
 	
-	public static List<Follower> apply (List<Follower> lista, int a , Parsing p)
+	public List<Follower> apply (List<Follower> lista, Integer a , Parsing p)
 	{
 		for(HashMap<String,String> hm : p.users) 
 		{
