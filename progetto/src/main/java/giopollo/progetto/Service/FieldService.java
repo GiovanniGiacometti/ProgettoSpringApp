@@ -8,14 +8,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import giopollo.progetto.Database.Parsing;
+import giopollo.progetto.Database.ApiParsing;
 import giopollo.progetto.Model.Follower;
 import giopollo.progetto.Request.Filter.F_Greater;
 
 public class FieldService {
 
 	
-	public static List<Follower> apply(Parsing p, String filter) {
+	public static List<Follower> apply(List<Follower> lf, String filter) {
 		
 		
 		HashMap<String,Object> hm = new HashMap<String,Object>();
@@ -30,25 +30,21 @@ public class FieldService {
 		}
 		
 		List<Follower> lista = new ArrayList<Follower>();
-		
 		String field = (String) hm.keySet().toArray()[0];
-		
 		Object body = hm.get(field);
-		
 		HashMap<String,Object> hmBody = new HashMap<String,Object>();
-		
 		hmBody = obj.convertValue(body, HashMap.class);
 		
 		switch(field)
 		{
 			case("number"):
 			{	
-				lista = FilterService.number(lista, p, hmBody);
+				lista = FilterService.number(lista, lf, hmBody);
 				break;
 			}
 			case("string"):
 			{
-				lista = FilterService.word(lista, p, hmBody);
+				lista = FilterService.word(lista, lf, hmBody);
 				break;
 			}
 			default :

@@ -3,7 +3,6 @@ package giopollo.progetto.Service;
 import java.util.HashMap;
 import java.util.List;
 
-import giopollo.progetto.Database.Parsing;
 import giopollo.progetto.Model.Follower;
 import giopollo.progetto.Request.Filter.F_Between;
 import giopollo.progetto.Request.Filter.F_Greater;
@@ -13,7 +12,8 @@ import giopollo.progetto.Request.Filter.F_FullLocation;
 
 public class FilterService {
 
-	public static List<Follower> number(List<Follower> lista, Parsing p, HashMap<String,Object> hmBody) throws RuntimeException {
+	
+	public static List<Follower> number(List<Follower> lista, List<Follower> lf, HashMap<String,Object> hmBody) throws RuntimeException {
 		
 		String operator = (String) hmBody.keySet().toArray()[0];
 		switch(operator)
@@ -22,7 +22,7 @@ public class FilterService {
 			{
 				if(hmBody.get(operator) instanceof Integer) {
 					int a = (int) hmBody.get(operator);
-					lista = F_Greater.apply(lista, a, p);
+					lista =  F_Greater.apply(lista, a, lf);
 				} else throw new RuntimeException();
 				break;
 			}
@@ -30,7 +30,7 @@ public class FilterService {
 			{
 				if(hmBody.get(operator) instanceof List<?>) { 
 					List<Integer> b = (List<Integer>) hmBody.get(operator);
-					lista = F_Between.apply(lista, b, p);
+					lista = F_Between.apply(lista, b, lf);
 				} else throw new RuntimeException();
 				break;
 			}
@@ -38,7 +38,7 @@ public class FilterService {
 			{
 				if(hmBody.get(operator) instanceof Integer) {
 					int a = (int) hmBody.get(operator);
-					lista = F_Lower.apply(lista, a, p);
+					lista = F_Lower.apply(lista, a, lf);
 				} else throw new RuntimeException();
 				break;
 			}
@@ -48,7 +48,7 @@ public class FilterService {
 		return lista;
 	}
 	
-public static List<Follower> word(List<Follower> lista, Parsing p, HashMap<String,Object> hmBody) throws RuntimeException {
+public static List<Follower> word(List<Follower> lista, List<Follower> lf, HashMap<String,Object> hmBody) throws RuntimeException {
 		
 		String operator = (String) hmBody.keySet().toArray()[0];
 		switch(operator)
@@ -57,7 +57,7 @@ public static List<Follower> word(List<Follower> lista, Parsing p, HashMap<Strin
 			{
 				if(hmBody.get(operator) instanceof String) {
 					String a = (String) hmBody.get(operator);
-					lista = F_Word.apply(lista, a, p);
+					lista = F_Word.apply(lista, a, lf);
 				} else throw new RuntimeException();
 				break;
 			}
@@ -65,7 +65,7 @@ public static List<Follower> word(List<Follower> lista, Parsing p, HashMap<Strin
 			{
 				if(hmBody.get(operator) instanceof String) {
 					String a = (String) hmBody.get(operator);
-					lista = F_FullLocation.apply(lista, a, p);
+					lista = F_FullLocation.apply(lista, a, lf);
 				} else throw new RuntimeException();
 				break;
 			}

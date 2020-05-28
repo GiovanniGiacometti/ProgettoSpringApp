@@ -42,4 +42,28 @@ public class Function {
 		}
 		return null;
 	}
+	
+	public static float max(List<Follower> u)
+	{
+		int max=0;
+		for(Follower f : u) 
+		{
+			String s = f.getLocation();
+			if(s.length()>max) max = s.length();
+		}
+	
+		return (float)max;
+	}
+	
+	public static float min(List<Follower> u)
+	{
+		int min=0;
+		for(Follower f : u) 
+		{
+			String s = f.getLocation();
+			if(s.length()<min) min = s.length();
+		}
+	
+		return (float)min;
+	}
 }

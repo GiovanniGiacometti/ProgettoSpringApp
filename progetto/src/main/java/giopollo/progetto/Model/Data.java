@@ -1,14 +1,13 @@
-package giopollo.progetto.Request.Macro;
+package giopollo.progetto.Model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import giopollo.progetto.Database.Parsing;
-import giopollo.progetto.Model.Follower;
+import giopollo.progetto.Database.ApiParsing;
 
-	public class M_Follower {
+	public class Data {
 
-		public static List<Follower> apply(Parsing p) {
+		public static List<Follower> getData(ApiParsing p) {
 			
 			Follower f = null;
 			List<Follower> lf = new ArrayList<Follower>();

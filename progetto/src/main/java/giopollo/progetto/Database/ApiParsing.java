@@ -3,7 +3,7 @@ package giopollo.progetto.Database;
 import java.util.HashMap;
 import java.util.List;
 
-public class Parsing {
+public class ApiParsing {
 	
 		public List<HashMap<String,String>> users;
 		public String next_cursor;

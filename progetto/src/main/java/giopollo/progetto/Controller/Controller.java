@@ -1,9 +1,10 @@
 package giopollo.progetto.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import giopollo.progetto.Exception.E_wordNotFound;
@@ -30,15 +31,22 @@ public class Controller {
 	}
 	
 	@RequestMapping(value = "/follower/filter",  method = RequestMethod.GET)
-	public ResponseEntity<Object> getFollowerFilter(@RequestParam (name ="user",defaultValue = "efrontoni") String user, @RequestParam (name ="number",defaultValue = "10") String number,@RequestParam(name = "filter",defaultValue = "") String filter)
+	public ResponseEntity<Object> getDataWithFilter(@RequestParam (name ="user",defaultValue = "efrontoni") String user, @RequestParam (name ="number",defaultValue = "10") String number,@RequestParam(name = "filter",defaultValue = "") String filter)
 	{
 		return new ResponseEntity<>(service.getFilter(UrlService.getUrl(user, number),filter),HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/follower/stats",  method = RequestMethod.GET)
-	public ResponseEntity<Object> getStats(@RequestParam (name ="user",defaultValue = "efrontoni") String user, @RequestParam (name ="number",defaultValue = "10") String number,@RequestParam(name = "filter",defaultValue = "") String filter)
+	public ResponseEntity<Object> getStatss(@RequestParam (name ="user",defaultValue = "efrontoni") String user, @RequestParam (name ="number",defaultValue = "10") String number,@RequestParam (name ="stats",defaultValue = "") List<String> stats)
 	{
-		return new ResponseEntity<>(service.getStats(UrlService.getUrl(user, number), filter),HttpStatus.OK);
+		return new ResponseEntity<>(service.getStats(UrlService.getUrl(user, number) , stats),HttpStatus.OK);
+	}
+	
+	
+	@RequestMapping(value = "/follower/filter/stats",  method = RequestMethod.GET)
+	public ResponseEntity<Object> getStatsWithFilter(@RequestParam (name ="user",defaultValue = "efrontoni") String user, @RequestParam (name ="number",defaultValue = "10") String number,@RequestParam(name = "filter",defaultValue = "") String filter,@RequestParam (name ="stats",defaultValue = "") List<String> stats)
+	{
+		return new ResponseEntity<>(service.getStats(UrlService.getUrl(user, number), stats, filter),HttpStatus.OK);
 	}
 	
 	

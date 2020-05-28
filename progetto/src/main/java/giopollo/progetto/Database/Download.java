@@ -5,16 +5,21 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.List;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import giopollo.progetto.Model.Data;
+import giopollo.progetto.Model.Follower;
 
 
 
 
 public class Download {
 	
-	public static Parsing apiDownload(String url){
+	public static List<Follower> apiDownload(String url){
 		
-		Parsing p = new Parsing();
+		ApiParsing p = new ApiParsing();
 		
 		try {
 			
@@ -40,14 +45,15 @@ public class Download {
 				
 				ObjectMapper obj = new ObjectMapper();
 				
-				p = obj.readValue(data, Parsing.class);
+				p = obj.readValue(data, ApiParsing.class);
 				}
 				catch (IOException e) {
 						
 						System.out.println("ciao");
 					}
 				
-				return p;		
+				
+				return Data.getData(p);
 	}
 	
 	
