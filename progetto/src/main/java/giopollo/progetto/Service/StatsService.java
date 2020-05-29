@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import giopollo.progetto.Model.Follower;
-import giopollo.progetto.Request.Stats.Function;
+import giopollo.progetto.Request.Stats.Stats;
 
 
 public class StatsService {
@@ -23,7 +23,7 @@ public class StatsService {
 		for(String s : stats )
 		{
 			HashMap<String,Float> buffer = new HashMap<String,Float>();
-			Function f = new Function();
+			Stats f = new Stats();
 			Method method = null;
 			try {
 				method = f.getClass().getMethod(s,List.class);
@@ -48,11 +48,7 @@ public class StatsService {
 			}
 			
 		}
-		
-		
 		return statistiche;
-		
-		
 	}
 		
 	

@@ -5,7 +5,7 @@ import java.util.List;
 
 import giopollo.progetto.Model.Follower;
 
-public class Function {
+public class Stats {
 	public static float media(List<Follower> u)
 	{
 		float media=0;
@@ -57,7 +57,7 @@ public class Function {
 	
 	public static float min(List<Follower> u)
 	{
-		int min=0;
+		int min=u.get(0).getLocation().length();
 		for(Follower f : u) 
 		{
 			String s = f.getLocation();

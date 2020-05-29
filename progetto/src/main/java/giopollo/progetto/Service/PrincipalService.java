@@ -18,7 +18,7 @@ public class PrincipalService {
 	}	
 
 	public List<Follower> getFilter(String url, String filter) {
-		return FieldService.apply(Download.apiDownload(url), filter);
+		return FilterService.apply(Download.apiDownload(url), filter);
 	}
 	
 	public List<HashMap<String, Float>> getStats(String url,List<String> stats){
@@ -28,7 +28,7 @@ public class PrincipalService {
 	
 	public List<HashMap<String, Float>> getStats(String url, List<String> stats, String filter) {
 		
-		return StatsService.calculate(FieldService.apply(Download.apiDownload(url),filter),stats);
+		return StatsService.calculate(FilterService.apply(Download.apiDownload(url),filter),stats);
 	}
 	
 	

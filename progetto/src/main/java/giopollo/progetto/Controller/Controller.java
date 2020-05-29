@@ -30,8 +30,8 @@ public class Controller {
 		return new ResponseEntity<>(service.getMetadata(),HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/follower/filter",  method = RequestMethod.GET)
-	public ResponseEntity<Object> getDataWithFilter(@RequestParam (name ="user",defaultValue = "efrontoni") String user, @RequestParam (name ="number",defaultValue = "10") String number,@RequestParam(name = "filter",defaultValue = "") String filter)
+	@RequestMapping(value = "/follower/filter",  method = RequestMethod.POST)
+	public ResponseEntity<Object> getDataWithFilter(@RequestParam (name ="user",defaultValue = "efrontoni") String user, @RequestParam (name ="number",defaultValue = "10") String number,@RequestBody String filter)
 	{
 		return new ResponseEntity<>(service.getFilter(UrlService.getUrl(user, number),filter),HttpStatus.OK);
 	}
@@ -43,8 +43,8 @@ public class Controller {
 	}
 	
 	
-	@RequestMapping(value = "/follower/filter/stats",  method = RequestMethod.GET)
-	public ResponseEntity<Object> getStatsWithFilter(@RequestParam (name ="user",defaultValue = "efrontoni") String user, @RequestParam (name ="number",defaultValue = "10") String number,@RequestParam(name = "filter",defaultValue = "") String filter,@RequestParam (name ="stats",defaultValue = "") List<String> stats)
+	@RequestMapping(value = "/follower/filter/stats",  method = RequestMethod.POST)
+	public ResponseEntity<Object> getStatsWithFilter(@RequestParam (name ="user",defaultValue = "efrontoni") String user, @RequestParam (name ="number",defaultValue = "10") String number,@RequestBody String filter,@RequestParam (name ="stats",defaultValue = "") List<String> stats)
 	{
 		return new ResponseEntity<>(service.getStats(UrlService.getUrl(user, number), stats, filter),HttpStatus.OK);
 	}
