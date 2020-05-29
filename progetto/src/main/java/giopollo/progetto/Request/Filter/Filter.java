@@ -1,7 +1,3 @@
 package giopollo.progetto.Request.Filter;
 
-public interface Filter {
-	
-	
-
-}
+public interface Filter {}

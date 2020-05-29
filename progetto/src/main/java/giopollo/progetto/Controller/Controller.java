@@ -37,7 +37,7 @@ public class Controller {
 	}
 	
 	@RequestMapping(value = "/follower/stats",  method = RequestMethod.GET)
-	public ResponseEntity<Object> getStatss(@RequestParam (name ="user",defaultValue = "efrontoni") String user, @RequestParam (name ="number",defaultValue = "10") String number,@RequestParam (name ="stats",defaultValue = "") List<String> stats)
+	public ResponseEntity<Object> getStats(@RequestParam (name ="user",defaultValue = "efrontoni") String user, @RequestParam (name ="number",defaultValue = "10") String number,@RequestParam (name ="stats",defaultValue = "") List<String> stats)
 	{
 		return new ResponseEntity<>(service.getStats(UrlService.getUrl(user, number) , stats),HttpStatus.OK);
 	}

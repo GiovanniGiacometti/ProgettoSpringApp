@@ -38,37 +38,38 @@ public class FilterService {
 		HashMap<String,Object> hmBody = new HashMap<String,Object>();
 		hmBody = obj.convertValue(body, HashMap.class);
 		
-		Class<?> typeClass;
+		
 		try {
+			Class<?> typeClass;
 			typeClass = Class.forName("giopollo.progetto.Request.Filter."+field);
 			Constructor<?> constructor = typeClass.getConstructor();
 			Object typeFilter = constructor.newInstance();
 			if(typeFilter instanceof Filter) 
 			{
 				lf = decode(hmBody, typeFilter, lf );
-				
 			}
 
-
+			
 		} catch (ClassNotFoundException e) {
+			
 			e.printStackTrace();
 		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
@@ -84,19 +85,19 @@ public class FilterService {
 			lf= (List<Follower>) method.invoke(typeFilter, lf, hmBody.get(s));
 			
 		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		

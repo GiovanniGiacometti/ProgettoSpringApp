@@ -1,6 +1,10 @@
 package giopollo.progetto.Request.Filter;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
+
 
 import giopollo.progetto.Model.Follower;
 
@@ -17,16 +21,19 @@ public class Number implements Filter{
 		return lista;
 	}
 	
-public static List<Follower> between(List<Follower> lista, List<Integer> b) {
+public static List<Follower> between(List<Follower> lista, ArrayList<Integer> b) {
 		
-		for(Follower f : lista) 
-		{
-			String s = f.getLocation();
-			if(!(s.length()>b.get(0) && s.length()<b.get(1))) 
+			Iterator<Follower> it = lista.iterator();
+			
+			while (it.hasNext())
 			{
-				lista.remove(f);
-			}			
-		}
+				Follower f = it.next();
+				if(!(f.getLocation().length() < b.get(1) && f.getLocation().length()>b.get(0)))
+				{
+					it.remove();
+				}
+			}		
+		
 		return lista;
 	}
 
