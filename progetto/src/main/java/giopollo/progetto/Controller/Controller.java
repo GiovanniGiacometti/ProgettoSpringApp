@@ -27,7 +27,7 @@ public class Controller {
 	@RequestMapping(value = "/follower/metadata",  method = RequestMethod.GET)
 	public ResponseEntity<Object> getMetadata()
 	{
-		return new ResponseEntity<>(service.getMetadata(UrlService.URL),HttpStatus.OK);
+		return new ResponseEntity<>(service.getMetadata(),HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/follower/filter",  method = RequestMethod.GET)

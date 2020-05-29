@@ -13,7 +13,7 @@ public class PrincipalService {
 		return Download.apiDownload(url);
 	}
 
-	public List<String> getMetadata(String url) {
+	public List<String> getMetadata() {
 		return Metadata.getMetadata();
 	}	
 
