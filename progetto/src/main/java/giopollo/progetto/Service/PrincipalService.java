@@ -1,5 +1,6 @@
 package giopollo.progetto.Service;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
 import giopollo.progetto.Database.Download;
@@ -17,16 +18,16 @@ public class PrincipalService {
 		return Metadata.getMetadata();
 	}	
 
-	public List<Follower> getFilter(String url, String filter) {
+	public List<Follower> getFilter(String url, String filter) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException {
 		return FilterService.apply(Download.apiDownload(url), filter);
 	}
 	
-	public List<HashMap<String, Float>> getStats(String url,List<String> stats){
+	public List<HashMap<String, Float>> getStats(String url,List<String> stats) throws NoSuchMethodException, InvocationTargetException{
 		return StatsService.calculate(Download.apiDownload(url),stats);
 	}
 	
 	
-	public List<HashMap<String, Float>> getStats(String url, List<String> stats, String filter) {
+	public List<HashMap<String, Float>> getStats(String url, List<String> stats, String filter) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException {
 		
 		return StatsService.calculate(FilterService.apply(Download.apiDownload(url),filter),stats);
 	}

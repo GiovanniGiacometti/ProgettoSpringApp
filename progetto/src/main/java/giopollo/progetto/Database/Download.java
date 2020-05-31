@@ -31,30 +31,30 @@ public class Download {
 			String line = "";
 			
 			try {
-				InputStreamReader inR = new InputStreamReader( in );
-				BufferedReader buf = new BufferedReader( inR );
-				  
-				while ( ( line = buf.readLine() ) != null ) {
-					data+= line;
-				}
-				} catch (IOException e) {
-					System.out.println("Errore -> Operazione di I/O interrotte");	
-				} finally {
-					in.close();
-				}
-				
-				ObjectMapper obj = new ObjectMapper();
-				
-				p = obj.readValue(data, ApiParsing.class);
-				}
-				catch (IOException e) {
-						
-						System.out.println("ciao");
+					InputStreamReader inR = new InputStreamReader( in );
+					BufferedReader buf = new BufferedReader( inR );
+					  
+					while ( ( line = buf.readLine() ) != null ) {
+						data+= line;
+						}
+					} catch (IOException e) {
+						System.out.println("Errore -> Operazione di I/O interrotte");	
+					} finally {
+						in.close();
 					}
 				
+						ObjectMapper obj = new ObjectMapper();
+						
+						p = obj.readValue(data, ApiParsing.class);
+						}
+						catch (IOException e) {
+								
+								System.out.println("Errore I/O");
+							}
+					
 				
-				return Data.getData(p);
-	}
+							return Data.getData(p);
+				}
 	
 	
 	
