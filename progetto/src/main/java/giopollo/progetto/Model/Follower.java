@@ -1,6 +1,7 @@
 package giopollo.progetto.Model;
 
 public class Follower {
+	
 	private String name;
 	private String location;
 	

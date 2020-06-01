@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import giopollo.progetto.Database.ApiParsing;
+import giopollo.progetto.Exception.E_serverProblems;
 
 	public class Data {
 

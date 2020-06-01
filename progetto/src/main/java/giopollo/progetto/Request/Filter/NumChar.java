@@ -17,6 +17,10 @@ public class NumChar implements Filter{
 		return lista;
 	}
 	
+	
+	//unica funzione
+	
+	
 	public List<Follower> lower  (List<Follower> lista, Integer a) throws E_NoFollowerFound
 	{
 		lista.removeIf(f->(f.getLocation().length()>a));
