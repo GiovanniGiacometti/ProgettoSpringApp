@@ -52,7 +52,6 @@ public class Controller {
 		return new ResponseEntity<>(service.getStats(UrlService.getUrl(user, number), stats, filter),HttpStatus.OK);
 	}
 	
-	
 	@ExceptionHandler(NoSuchMethodException.class)
 	public String handleException1(NoSuchMethodException e) {
 	    return "Non trovato! Controlla di aver scritto bene!";

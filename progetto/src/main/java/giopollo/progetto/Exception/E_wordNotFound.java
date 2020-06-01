@@ -1,18 +1,14 @@
 package giopollo.progetto.Exception;
 
-public class E_wordNotFound extends RuntimeException {
+public class E_wordNotFound extends E_Project {
 
 	private static final long serialVersionUID = 1L;
 	
-	public String message = null;
-
-	public E_wordNotFound(String message) {
-		this.message = message;
-	}
 	
+	@Override
 	public String getMessage()
 	{
-		return this.message;
+		return "Nessun follower ha questa parola nella descrizione!";
 	}
 
 }
