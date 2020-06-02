@@ -63,7 +63,6 @@ public class Stats {
 			String s = f.getLocation();
 			if(s.length()<min) min = s.length();
 		}
-	
 		return (float)min;
 	}
 }

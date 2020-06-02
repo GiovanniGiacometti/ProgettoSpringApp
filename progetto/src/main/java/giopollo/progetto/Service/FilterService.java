@@ -13,12 +13,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 import giopollo.progetto.Model.Follower;
-import giopollo.progetto.Request.Filter.Filter;
-
-
 
 public class FilterService {
-
 	
 	public static List<Follower> apply(List<Follower> lf, String filter) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException {
 		
@@ -44,7 +40,7 @@ public class FilterService {
 			typeClass = Class.forName("giopollo.progetto.Request.Filter."+field);
 			Constructor<?> constructor = typeClass.getConstructor();
 			Object typeFilter = constructor.newInstance();
-			if(typeFilter instanceof Filter) 
+			if(typeFilter instanceof Object) 
 			{
 				lf = decode(hmBody, typeFilter, lf );
 			}
@@ -85,7 +81,6 @@ public class FilterService {
 			
 			e.printStackTrace();
 		} 
-		
 		
 		return lf;
 	}

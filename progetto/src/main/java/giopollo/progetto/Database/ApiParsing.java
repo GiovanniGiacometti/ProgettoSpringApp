@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ApiParsing {
 	
-		public List<HashMap<String,String>> users;
+		public List<HashMap<String,Object>> users;
 		public String next_cursor;
 		public String next_cursor_str;
 		public String previous_cursor;

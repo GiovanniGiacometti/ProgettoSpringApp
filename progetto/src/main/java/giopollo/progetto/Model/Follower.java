@@ -4,18 +4,38 @@ public class Follower {
 	
 	private String name;
 	private String location;
+	private int followers_count;
+	private int friends_count;
 	
 	public Follower() {
 	}
+	
+	public Follower(String name, String location, int followers_count, int friends_count) {
+		super();
+		this.name = name;
+		this.location = location;
+		this.followers_count = followers_count;
+		this.friends_count = friends_count;
+	}
+	
+	public int getFollowers_count() {
+		return followers_count;
+	}
+	public void setFollowers_count(int followers_count) {
+		this.followers_count = followers_count;
+	}
+	public int getFriends_count() {
+		return friends_count;
+	}
+	public void setFriends_count(int friends_count) {
+		this.friends_count = friends_count;
+	}
+	
 	/**
 	 * @param name
 	 * @param location
 	 */
-	public Follower(String name, String location) {
-		this.name = name;
-		this.location = location;
-	}
-	
+
 	/**
 	 * @return the name
 	 */

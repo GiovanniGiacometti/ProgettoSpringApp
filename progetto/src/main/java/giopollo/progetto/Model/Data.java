@@ -1,10 +1,11 @@
 package giopollo.progetto.Model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import giopollo.progetto.Database.ApiParsing;
-import giopollo.progetto.Exception.E_serverProblems;
+
 
 	public class Data {
 
@@ -13,11 +14,13 @@ import giopollo.progetto.Exception.E_serverProblems;
 			Follower f = null;
 			List<Follower> lf = new ArrayList<Follower>();
 			if ( p.users.size() > 0)
-				for(int i=0; i<p.users.size();i++)
+				for(HashMap<String,Object> hm : p.users)
 				{
-					f = new Follower("","");
-					f.setLocation(p.users.get(i).get("location"));
-					f.setName(p.users.get(i).get("name")); 
+					f = new Follower("","", 0, 0);
+					f.setLocation((String)hm.get("location"));
+					f.setName((String)hm.get("name")); 
+					f.setFollowers_count((int)hm.get("followers_count"));
+					f.setFriends_count((int)hm.get("friends_count"));
 					lf.add(f);
 				}	
 			return lf;
