@@ -17,6 +17,12 @@ public class StatsService {
 		
 		List<HashMap<String, Float>> statistiche = new ArrayList<HashMap<String, Float>>();
 		
+		if(stats.size()==0) 
+		{
+			stats.add("media");stats.add("max");stats.add("min");
+		}
+		
+		
 		for(String s : stats )
 		{
 			HashMap<String,Float> buffer = new HashMap<String,Float>();

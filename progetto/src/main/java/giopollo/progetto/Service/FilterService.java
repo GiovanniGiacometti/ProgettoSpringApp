@@ -3,7 +3,6 @@ package giopollo.progetto.Service;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
 import java.util.HashMap;
 import java.util.List;
 
@@ -18,54 +17,72 @@ public class FilterService {
 	
 	public static List<Follower> apply(List<Follower> lf, String filter) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException {
 		
-		HashMap<String,Object> hm = new HashMap<String,Object>();
-		ObjectMapper obj = new ObjectMapper();
-		
-		try {
-			hm = obj.readValue(filter, HashMap.class);
-		} catch (JsonMappingException e) {
-			e.printStackTrace();
-		} catch (JsonProcessingException e) {
-			e.printStackTrace();
-		}
-		
-		String field = (String) hm.keySet().toArray()[0];
-		Object body = hm.get(field);
-		HashMap<String,Object> hmBody = new HashMap<String,Object>();
-		hmBody = obj.convertValue(body, HashMap.class);
-		
-		
-		try {
-			Class<?> typeClass;
-			typeClass = Class.forName("giopollo.progetto.Request.Filter."+field);
-			Constructor<?> constructor = typeClass.getConstructor();
-			Object typeFilter = constructor.newInstance();
-			if(typeFilter instanceof Object) 
-			{
-				lf = decode(hmBody, typeFilter, lf );
+			HashMap<String,Object> totalFilter = new HashMap<String,Object>();
+			ObjectMapper obj = new ObjectMapper();
+			
+			try {
+				totalFilter = obj.readValue(filter, HashMap.class);
+			} catch (JsonMappingException e) {
+				e.printStackTrace();
+			} catch (JsonProcessingException e) {
+				e.printStackTrace();
 			}
-
 			
-		} catch (SecurityException e) {
+			String numFiltStr = (String) totalFilter.keySet().toArray()[0];
+			int numFilt = Integer.parseInt(numFiltStr);
 			
-			e.printStackTrace();
-		} catch (InstantiationException e) {
+			Object totalBodyObj = totalFilter.get(numFiltStr);
+		
+			HashMap<String,Object> totalBody = new HashMap<String,Object>();
+			totalBody = obj.convertValue(totalBodyObj, HashMap.class);
 			
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
+			for(int i=0; i<numFilt; i++)
+			{
+					String field = (String) totalBody.keySet().toArray()[i];
+					
+					HashMap<String,Object> bufferFilter = new HashMap<String,Object>();
+					bufferFilter.put(field, totalBody.get(field));
+					
+					HashMap<String,Object> method = null;
+					
+					if(bufferFilter.get(field) instanceof HashMap<?,?>)
+					{
+						method = (HashMap<String,Object>) bufferFilter.get(field);
+					}
+					
+					try {
+						Class<?> typeClass;
+						typeClass = Class.forName("giopollo.progetto.Request.Filter."+field);
+						Constructor<?> constructor = typeClass.getConstructor();
+						Object typeFilter = constructor.newInstance();
+						if(typeFilter instanceof Object) 
+						{
+							lf = decode(method, typeFilter, lf );
+						}
 			
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			
-			e.printStackTrace();
-		} 
-
+					} catch (SecurityException e) {
+						
+						e.printStackTrace();
+					} catch (InstantiationException e) {
+						
+						e.printStackTrace();
+					} catch (IllegalAccessException e) {
+						
+						e.printStackTrace();
+					} catch (IllegalArgumentException e) {
+						
+						e.printStackTrace();
+					} 
+				
+					
+			}
 		return lf;
 	}
 	
 	private static  List<Follower> decode(HashMap<String, Object> hmBody, Object typeFilter, List<Follower> lf) throws NoSuchMethodException, InvocationTargetException {
 		
 		String s = (String) hmBody.keySet().toArray()[0]; 
+		
 		Method method = null;
 		try {
 			method = typeFilter.getClass().getMethod(s,List.class, hmBody.get(s).getClass());
