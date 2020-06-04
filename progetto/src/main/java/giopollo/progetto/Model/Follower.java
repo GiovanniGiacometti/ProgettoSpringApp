@@ -2,10 +2,10 @@ package giopollo.progetto.Model;
 
 public class Follower {
 	
-	private String name;
-	private String location;
-	private int followers_count;
-	private int friends_count;
+	private String name; //nome dell'utente 
+	private String location; // location dell'utente 
+	private int followers_count; //numero degli account che seguono l'utente
+	private int friends_count; //numero degli account seguiti dall'utente
 	
 	public Follower() {
 	}

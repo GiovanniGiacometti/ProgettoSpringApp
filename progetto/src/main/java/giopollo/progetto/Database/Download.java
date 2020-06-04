@@ -1,4 +1,5 @@
 package giopollo.progetto.Database;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -6,9 +7,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import giopollo.progetto.Model.Data;
 import giopollo.progetto.Model.Follower;
 

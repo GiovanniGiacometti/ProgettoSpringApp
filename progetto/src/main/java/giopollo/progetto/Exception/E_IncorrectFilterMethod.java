@@ -1,6 +1,6 @@
 package giopollo.progetto.Exception;
 
-public class E_IncorrectFilterBody extends E_Project {
+public class E_IncorrectFilterMethod extends E_Project {
 
 	private static final long serialVersionUID = 1L;
 

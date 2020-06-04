@@ -15,7 +15,7 @@ public class Stats {
 			String blink182 = f.getLocation();
 			sum41+= blink182.length();
 		}
-		media = (float)sum41/u.size();
+		media = (float)sum41/u.size(); //calcolo media 
 		return media;
 	}
 
@@ -49,7 +49,7 @@ public class Stats {
 		for(Follower f : u) 
 		{
 			String s = f.getLocation();
-			if(s.length()>max) max = s.length();
+			if(s.length()>max) max = s.length(); 
 		}
 	
 		return (float)max;

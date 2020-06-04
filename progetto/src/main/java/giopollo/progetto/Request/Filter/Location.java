@@ -8,30 +8,30 @@ import giopollo.progetto.Model.Follower;
 
 public class Location extends NumericFilters{
 	@Override
-	public List<Follower> greater(List<Follower> lista, Integer a) throws E_NoFollowerFound
+	public List<Follower> greater(List<Follower> lf, Integer a)
 	{
-		lista.removeIf(f->(f.getLocation().length()<a));
-		if(lista.isEmpty()) throw new E_NoFollowerFound();
-		return lista;
+		lf.removeIf(f->(f.getLocation().length()<a));  //rimuove gli utenti con una location minore di "a" caratteri
+		if(lf.isEmpty()) throw new E_NoFollowerFound(); //lancia un'eccezione se la lista filtrata è vuota
+		return lf;
 	}
 	
 	@Override
-	public List<Follower> lower(List<Follower> lista, Integer a) throws E_NoFollowerFound
+	public List<Follower> lower(List<Follower> lf, Integer a)
 	{
-		lista.removeIf(f->(f.getLocation().length()>a));
-		if(lista.isEmpty()) throw new E_NoFollowerFound();
-		return lista;
+		lf.removeIf(f->(f.getLocation().length()>a));  //rimuove gli utenti con una location maggiore di "a" caratteri
+		if(lf.isEmpty()) throw new E_NoFollowerFound(); //lancia un'eccezione se la lista filtrata è vuota
+		return lf;
 	}
 	
 	public List<Follower> word(List<Follower> lf, String a){
-		lf.removeIf(f->(!f.getLocation().contains(a)));
-		if(lf.isEmpty()) throw new E_wordNotFound();
+		lf.removeIf(f->(!f.getLocation().contains(a))); //rimuove gli utenti la cui location non contiene la stringa "a"
+		if(lf.isEmpty()) throw new E_wordNotFound(); //lancia un'eccezione se la lista filtrata è vuota
 		return lf;		
 	}
 	
 	public List<Follower> fullLoc(List<Follower> lf, String a){
-		lf.removeIf(f->(!f.getLocation().equals(a)));
-		if(lf.isEmpty()) throw new E_wordNotFound();
+		lf.removeIf(f->(!f.getLocation().equals(a))); //rimuove gli utenti la cui location non sia identica alla stringa "a"
+		if(lf.isEmpty()) throw new E_wordNotFound(); //lancia un'eccezione se la lista filtrata è vuota
 		return lf;	
 	}
 }
