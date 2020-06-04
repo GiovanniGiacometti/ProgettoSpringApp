@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import giopollo.progetto.Exception.E_Project;
 import giopollo.progetto.Service.PrincipalService;
 import giopollo.progetto.Service.UrlService;
 
@@ -68,11 +69,11 @@ public class Controller {
 	    return "Non esiste questo filtro!";
 	}
 	
-	/*
-	@ExceptionHandler(E_serverProblems.class)
-	public String handleException4(E_serverProblems e) {
+	
+	@ExceptionHandler(E_Project.class)
+	public String handleException4(E_Project e) {
 	    return e.getMessage();
-	}*/
+	}
 
 	
 	

@@ -10,12 +10,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-
+import giopollo.progetto.Exception.E_IncorrectFilterBody;
+import giopollo.progetto.Exception.E_IncorrectNumber;
+import giopollo.progetto.Exception.IncorrectFilterNumber;
 import giopollo.progetto.Model.Follower;
 
 public class FilterService {
 	
-	public static List<Follower> apply(List<Follower> lf, String filter) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException {
+	public static List<Follower> apply(List<Follower> lf, String filter) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException{
 		
 			HashMap<String,Object> totalFilter = new HashMap<String,Object>();
 			ObjectMapper obj = new ObjectMapper();
@@ -27,14 +29,24 @@ public class FilterService {
 			} catch (JsonProcessingException e) {
 				e.printStackTrace();
 			}
-			
+			int numFilt = 0;
 			String numFiltStr = (String) totalFilter.keySet().toArray()[0];
-			int numFilt = Integer.parseInt(numFiltStr);
+			
+			try {
+				numFilt = Integer.parseInt(numFiltStr);
+			}
+				catch(NumberFormatException e)
+				{
+					throw new E_IncorrectNumber();
+				}
+			
 			
 			Object totalBodyObj = totalFilter.get(numFiltStr);
 		
 			HashMap<String,Object> totalBody = new HashMap<String,Object>();
 			totalBody = obj.convertValue(totalBodyObj, HashMap.class);
+			
+			if(totalBody.size() != numFilt) throw new IncorrectFilterNumber();
 			
 			for(int i=0; i<numFilt; i++)
 			{
@@ -45,10 +57,8 @@ public class FilterService {
 					
 					HashMap<String,Object> method = null;
 					
-					if(bufferFilter.get(field) instanceof HashMap<?,?>)
-					{
-						method = (HashMap<String,Object>) bufferFilter.get(field);
-					}
+					if(bufferFilter.get(field) instanceof HashMap<?,?>) method = (HashMap<String,Object>) bufferFilter.get(field);
+					else throw new E_IncorrectFilterBody();
 					
 					try {
 						Class<?> typeClass;
@@ -59,7 +69,9 @@ public class FilterService {
 						{
 							lf = decode(method, typeFilter, lf );
 						}
-			
+						
+						
+						
 					} catch (SecurityException e) {
 						
 						e.printStackTrace();
@@ -73,8 +85,6 @@ public class FilterService {
 						
 						e.printStackTrace();
 					} 
-				
-					
 			}
 		return lf;
 	}
