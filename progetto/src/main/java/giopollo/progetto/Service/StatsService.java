@@ -21,7 +21,7 @@ public class StatsService {
 		}
 		
 		
-		for(String s : stats ) //itero su tutte le statistiche
+		for(String s : stats ) //itero su tutte le statistiche richieste
 		{
 			HashMap<String,Float> buffer = new HashMap<String,Float>(); //hashmap di buffer in cui inserire statistica e valore corrispondente 
 			Stats f = new Stats(); //la classe in cui sono contenuti i metodi per il calcolo delle statistiche
