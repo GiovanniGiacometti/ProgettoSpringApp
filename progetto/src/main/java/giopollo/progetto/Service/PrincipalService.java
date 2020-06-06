@@ -15,7 +15,7 @@ public class PrincipalService {
 	}
 
 	public List<String> getMetadata() {
-		return Metadata.getMetadata();
+		return Metadata.getFollowerMetadata();
 	}	
 
 	public List<Follower> getFilter(String url, String filter) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException {

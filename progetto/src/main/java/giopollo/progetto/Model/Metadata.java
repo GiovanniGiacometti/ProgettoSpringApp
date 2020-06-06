@@ -5,7 +5,7 @@ import java.util.List;
 
 
 public class Metadata {
-	public static List<String> getMetadata() 
+	public static List<String> getFollowerMetadata() 
 	{
 		List<String> l = new ArrayList<String> ();
 		l.add("name: nome dell'utente");
