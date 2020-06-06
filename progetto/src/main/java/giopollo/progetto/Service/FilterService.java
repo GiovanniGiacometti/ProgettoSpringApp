@@ -50,9 +50,12 @@ public class FilterService {
 					String field = (String) ListFields[i]; //campo da filtrare (es "Location")
 					
 					HashMap<String,Object> method = null; //inizializzo una HashMap in cui inserire il metodo del filtro 
-					if(filters.get(field) instanceof HashMap<?,?>) //verifico la correttezza del metodo del filtro  
-						method = (HashMap<String,Object>) filters.get(field); // inserisco il metodo del filtro (es "greater" : 100) 
-						else throw new E_IncorrectFilterMethod(); //lancio un'eccezione se non il metodo del filtro non è corretto
+					
+					if(filters.get(field) instanceof HashMap<?,?> ) { //verifico la correttezza del metodo del filtro  
+						method = (HashMap<String,Object>) filters.get(field); // inserisco il metodo del filtro (es "greater" : 100)
+						if(method.isEmpty()) throw new E_IncorrectFilterMethod();//lancio un'eccezione se il metodo del filtro è vuoto
+							
+					} else throw new E_IncorrectFilterMethod(); //lancio un'eccezione se il metodo del filtro non è corretto
 					
 					try {
 						Class<?> typeClass;
@@ -68,9 +71,6 @@ public class FilterService {
 						
 						e.printStackTrace();
 					} catch (IllegalAccessException e) {
-						
-						e.printStackTrace();
-					} catch (IllegalArgumentException e) {
 						
 						e.printStackTrace();
 					} 

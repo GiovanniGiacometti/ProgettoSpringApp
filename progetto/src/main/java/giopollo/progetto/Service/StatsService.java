@@ -10,9 +10,9 @@ import giopollo.progetto.Request.Stats.Stats;
 
 public class StatsService {
 
-	public static HashMap<String, Float> calculate(List<Follower> lf ,List<String> stats) throws NoSuchMethodException, InvocationTargetException {
+	public static HashMap<String, Number> calculate(List<Follower> lf ,List<String> stats) throws NoSuchMethodException, InvocationTargetException {
 		
-		HashMap<String, Float> statistiche = new HashMap<String, Float>(); //HashMap in cui inserire i valori delle statistiche richieste
+		HashMap<String, Number> statistiche = new HashMap<String, Number>(); //HashMap in cui inserire i valori delle statistiche richieste
 		
 		if(stats.size()==0) 
 		{
@@ -27,7 +27,7 @@ public class StatsService {
 			try {
 				method = f.getClass().getMethod(s,List.class); //definisco il metodo 
 				
-				statistiche.put(s, (Float) method.invoke(f,lf) ); //inseriscola statistica e il valore calcolato tramite l'invocazione del metodo richiesto
+				statistiche.put(s, (Number) method.invoke(f,lf) ); //inseriscola statistica e il valore calcolato tramite l'invocazione del metodo richiesto
 			
 			} catch (SecurityException e) {
 				

@@ -43,7 +43,7 @@ public class Stats {
 		return null;
 	}
 	
-	public static float max(List<Follower> u)
+	public static int max(List<Follower> u)
 	{
 		int max=0;
 		for(Follower f : u) 
@@ -52,10 +52,10 @@ public class Stats {
 			if(s.length()>max) max = s.length(); 
 		}
 	
-		return (float)max;
+		return max;
 	}
 	
-	public static float min(List<Follower> u)
+	public static int min(List<Follower> u)
 	{
 		int min=u.get(0).getLocation().length();
 		for(Follower f : u) 
@@ -63,6 +63,6 @@ public class Stats {
 			String s = f.getLocation();
 			if(s.length()<min) min = s.length();
 		}
-		return (float)min;
+		return min;
 	}
 }

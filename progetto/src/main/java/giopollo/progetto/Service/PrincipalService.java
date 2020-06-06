@@ -22,12 +22,12 @@ public class PrincipalService {
 		return FilterService.decodeFilter(Download.apiDownload(url), filter);
 	}
 	
-	public HashMap<String, Float> getStats(String url,List<String> stats) throws NoSuchMethodException, InvocationTargetException{
+	public HashMap<String, Number> getStats(String url,List<String> stats) throws NoSuchMethodException, InvocationTargetException{
 		return StatsService.calculate(Download.apiDownload(url),stats);
 	}
 	
 	
-	public HashMap<String, Float> getStats(String url, List<String> stats, String filter) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException {
+	public HashMap<String, Number> getStats(String url, List<String> stats, String filter) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException {
 		
 		return StatsService.calculate(FilterService.decodeFilter(Download.apiDownload(url),filter),stats);
 	}
