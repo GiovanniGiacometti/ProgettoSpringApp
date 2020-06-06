@@ -19,17 +19,17 @@ public class PrincipalService {
 	}	
 
 	public List<Follower> getFilter(String url, String filter) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException {
-		return FilterService.apply(Download.apiDownload(url), filter);
+		return FilterService.decodeFilter(Download.apiDownload(url), filter);
 	}
 	
-	public List<HashMap<String, Float>> getStats(String url,List<String> stats) throws NoSuchMethodException, InvocationTargetException{
+	public HashMap<String, Float> getStats(String url,List<String> stats) throws NoSuchMethodException, InvocationTargetException{
 		return StatsService.calculate(Download.apiDownload(url),stats);
 	}
 	
 	
-	public List<HashMap<String, Float>> getStats(String url, List<String> stats, String filter) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException {
+	public HashMap<String, Float> getStats(String url, List<String> stats, String filter) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException {
 		
-		return StatsService.calculate(FilterService.apply(Download.apiDownload(url),filter),stats);
+		return StatsService.calculate(FilterService.decodeFilter(Download.apiDownload(url),filter),stats);
 	}
 	
 	

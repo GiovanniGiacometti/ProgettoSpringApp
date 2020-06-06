@@ -15,7 +15,7 @@ import giopollo.progetto.Model.Follower;
 
 public class FilterService {
 	
-	public static List<Follower> apply(List<Follower> lf, String RequestBody) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException{
+	public static List<Follower> decodeFilter(List<Follower> lf, String RequestBody) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException{
 		
 			HashMap<String,Object> body = null; //HashMap in cui andrò ad inserire il body della richiesta POST
 			ObjectMapper obj = new ObjectMapper(); 
@@ -59,7 +59,7 @@ public class FilterService {
 						typeClass = Class.forName("giopollo.progetto.Request.Filter."+field); 
 						Constructor<?> constructor = typeClass.getConstructor(); 
 						Object typeFilter = constructor.newInstance(); //inizializzo la classe a partire dal campo su cui effettuare il filtro (package Filter)
-						lf = decode(method, typeFilter, lf ); //filtro la lista, passando il metodo del filtro, la classe su cui chiamare tale metodo e la lista da filtrare
+						lf = apply(method, typeFilter, lf ); //filtro la lista, passando il metodo del filtro, la classe su cui chiamare tale metodo e la lista da filtrare
 					
 					} catch (SecurityException e) {
 						
@@ -78,7 +78,7 @@ public class FilterService {
 		return lf; //lista filtrata
 	}
 	
-	private static  List<Follower> decode(HashMap<String, Object> hmBody, Object typeFilter, List<Follower> lf) throws NoSuchMethodException, InvocationTargetException {
+	private static  List<Follower> apply(HashMap<String, Object> hmBody, Object typeFilter, List<Follower> lf) throws NoSuchMethodException, InvocationTargetException {
 		
 		String s = (String) hmBody.keySet().toArray()[0]; //nome del metodo da eseguire
 		
