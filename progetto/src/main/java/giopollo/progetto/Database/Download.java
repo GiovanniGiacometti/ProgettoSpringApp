@@ -14,8 +14,18 @@ import giopollo.progetto.Model.Follower;
 
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Download.
+ */
 public class Download {
 	
+	/**
+	 * Api download.
+	 *
+	 * @param url the url
+	 * @return the list
+	 */
 	public static List<Follower> apiDownload(String url){
 		
 		ApiParsing p = new ApiParsing();
