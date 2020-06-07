@@ -3,8 +3,19 @@ package giopollo.progetto.Model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe che restituisce i metadati
+ * @author Giovanni Giacometti
+ * @author Lorenzo Pollonara
+ */
 
 public class Metadata {
+	
+	/**
+	 * Ottenere i metadata di un follower 
+	 *
+	 * @return List di String
+	 */
 	public static List<String> getFollowerMetadata() 
 	{
 		List<String> l = new ArrayList<String> ();

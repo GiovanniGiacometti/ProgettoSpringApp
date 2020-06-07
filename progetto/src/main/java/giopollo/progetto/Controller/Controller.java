@@ -12,24 +12,25 @@ import giopollo.progetto.Exception.E_Project;
 import giopollo.progetto.Service.PrincipalService;
 import giopollo.progetto.Service.UrlService;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Controller.
+ * Controller Spring per gestire le richieste dell'utente
+ * @author Giovanni Giacometti
+ * @author Lorenzo Pollonara
  */
 @RestController
 public class Controller {
 	
-	/** The service. */
+	/** l'annotazione @Autowired lancia automaticamente il costruttore all'avvio di Spring */
 	@Autowired 
 	PrincipalService service;
 	
 	
 	/**
-	 * Gets the follower.
+	 * Metodo per gestire la richiesta GET alla rotta "/follower/data", restituendo l'intero dataset
 	 *
-	 * @param user the user
-	 * @param number the number
-	 * @return the follower
+	 * @param user username dell'utente
+	 * @param number numero di follower che si vogliono visionare
+	 * @return List di oggetti Follower 
 	 */
 	@RequestMapping(value = "/follower/data",  method = RequestMethod.GET)
 	public ResponseEntity<Object> getFollower(@RequestParam (name ="user",defaultValue = "efrontoni") String user, 
@@ -40,9 +41,9 @@ public class Controller {
 	
 	
 	/**
-	 * Gets the metadata.
+	 * Metodo per gestire la richiesta GET alla rotta "/follower/metadata", restituendo tutti i metadati
 	 *
-	 * @return the metadata
+	 * @return List di stringhe
 	 */
 	@RequestMapping(value = "/follower/metadata",  method = RequestMethod.GET)
 	public ResponseEntity<Object> getMetadata()
@@ -52,15 +53,15 @@ public class Controller {
 	
 	
 	/**
-	 * Gets the data with filter.
+	 * Metodo per gestire la richiesta GET alla rotta "/follower/filter", restituendo la lista di follower filtrata
 	 *
-	 * @param user the user
-	 * @param number the number
-	 * @param filter the filter
-	 * @return the data with filter
-	 * @throws NoSuchMethodException the no such method exception
-	 * @throws InvocationTargetException the invocation target exception
-	 * @throws ClassNotFoundException the class not found exception
+	 * @param user username dell'utente
+	 * @param number numero di follower che si vogliono visionare
+	 * @param filter filtro 
+	 * @return List di oggetti Follower
+	 * @throws NoSuchMethodException
+	 * @throws InvocationTargetException
+	 * @throws ClassNotFoundException
 	 */
 	@RequestMapping(value = "/follower/filter",  method = RequestMethod.POST)
 	public ResponseEntity<Object> getDataWithFilter(@RequestParam (name ="user",defaultValue = "efrontoni") String user, @RequestParam (name ="number",defaultValue = "10") String number,@RequestBody String filter) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException
@@ -70,14 +71,14 @@ public class Controller {
 	
 	
 	/**
-	 * Gets the stats.
+	 * Metodo per gestire la richiesta GET alla rotta "/follower/stats", restituendo la lista di statistiche
 	 *
-	 * @param user the user
-	 * @param number the number
-	 * @param stats the stats
-	 * @return the stats
-	 * @throws NoSuchMethodException the no such method exception
-	 * @throws InvocationTargetException the invocation target exception
+	 * @param user username dell'utente
+	 * @param number numero di follower che si vogliono visionare
+	 * @param stats statistiche che si vogliono visionare
+	 * @return HashMap di stringhe e numeri
+	 * @throws NoSuchMethodException
+	 * @throws InvocationTargetException
 	 */
 	@RequestMapping(value = "/follower/stats",  method = RequestMethod.GET)
 	public ResponseEntity<Object> getStats(@RequestParam (name ="user",defaultValue = "efrontoni") String user, @RequestParam (name ="number",defaultValue = "10") String number,@RequestParam (name ="stats",defaultValue = "") List<String> stats) throws NoSuchMethodException, InvocationTargetException
@@ -87,16 +88,16 @@ public class Controller {
 	
 	
 	/**
-	 * Gets the stats with filter.
+	 * Metodo per gestire la richiesta GET alla rotta "/filter/stats", restituendo la lista di statistiche applicando anche i filtri
 	 *
-	 * @param user the user
-	 * @param number the number
-	 * @param filter the filter
-	 * @param stats the stats
-	 * @return the stats with filter
-	 * @throws NoSuchMethodException the no such method exception
-	 * @throws InvocationTargetException the invocation target exception
-	 * @throws ClassNotFoundException the class not found exception
+	 * @param user username dell'utente
+	 * @param number numero di follower che si vogliono visionare
+	 * @param filter filtro 
+	 * @param stats statistiche che si vogliono visionare
+	 * @return HashMap di stringhe e numeri
+	 * @throws NoSuchMethodException
+	 * @throws InvocationTargetException
+	 * @throws ClassNotFoundException
 	 */
 	@RequestMapping(value = "/follower/filter/stats",  method = RequestMethod.POST)
 	public ResponseEntity<Object> getStatsWithFilter(@RequestParam (name ="user",defaultValue = "efrontoni") String user, @RequestParam (name ="number",defaultValue = "10") String number,@RequestBody String filter,@RequestParam (name ="stats",defaultValue = "") List<String> stats) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException
@@ -106,10 +107,10 @@ public class Controller {
 	
 	
 	/**
-	 * Handle exception 1.
+	 * Metodo per gestire eccezione 
 	 *
-	 * @param e the e
-	 * @return the string
+	 * @param e
+	 * @return String
 	 */
 	@ExceptionHandler(NoSuchMethodException.class)
 	public String handleException1(NoSuchMethodException e) {
@@ -128,10 +129,10 @@ public class Controller {
 	}
 	
 	/**
-	 * Handle exception 3.
+	 * Metodo per gestire eccezione se viene immesso un filtro errato
 	 *
-	 * @param e the e
-	 * @return the string
+	 * @param e
+	 * @return String
 	 */
 	@ExceptionHandler(ClassNotFoundException.class)
 	public String handleException3(ClassNotFoundException e) {

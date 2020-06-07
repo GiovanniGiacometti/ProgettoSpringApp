@@ -6,7 +6,21 @@ import giopollo.progetto.Exception.E_NoFollowerFound;
 import giopollo.progetto.Exception.E_wordNotFound;
 import giopollo.progetto.Model.Follower;
 
+/**
+ * Classe per filtrare la location
+ * @author Giovanni Giacometti
+ * @author Lorenzo Pollonara
+ */
+
 public class Location extends NumericFilters{
+	
+	/**
+	 * Filtro che restituisce i follower la cui location ha più caratteri rispetto al numero inserito dall'utente
+	 *
+	 * @param lf lista di follower dell'account
+	 * @param a numero di caratteri inserito dall'utente
+	 * @return List di oggetti Follower
+	 */
 	@Override
 	public List<Follower> greater(List<Follower> lf, Integer a)
 	{
@@ -15,6 +29,13 @@ public class Location extends NumericFilters{
 		return lf;
 	}
 	
+	/**
+	 * Filtro che restituisce i follower la cui location ha meno caratteri rispetto al numero inserito dall'utente
+	 *
+	 * @param lf lista di follower dell'account
+	 * @param a numero di caratteri inserito dall'utente
+	 * @return List di oggetti Follower
+	 */
 	@Override
 	public List<Follower> lower(List<Follower> lf, Integer a)
 	{
@@ -23,12 +44,26 @@ public class Location extends NumericFilters{
 		return lf;
 	}
 	
+	/**
+	 * Filtro che restituisce i follower nella cui location compare la parola inserita dall'utente
+	 *
+	 * @param lf lista di follower dell'account
+	 * @param a numero di caratteri inserito dall'utente
+	 * @return List di oggetti Follower
+	 */
 	public List<Follower> word(List<Follower> lf, String a){
 		lf.removeIf(f->(!f.getLocation().contains(a))); //rimuove gli utenti la cui location non contiene la stringa "a"
 		if(lf.isEmpty()) throw new E_wordNotFound(); //lancia un'eccezione se la lista filtrata è vuota
 		return lf;		
 	}
 	
+	/**
+	 * Filtro che restituisce i follower la cui location è uguale alla parola inserita dall'utente
+	 *
+	 * @param lf lista di follower dell'account
+	 * @param a numero di caratteri inserito dall'utente
+	 * @return List di oggetti Follower
+	 */
 	public List<Follower> fullLoc(List<Follower> lf, String a){
 		lf.removeIf(f->(!f.getLocation().equals(a))); //rimuove gli utenti la cui location non sia identica alla stringa "a"
 		if(lf.isEmpty()) throw new E_wordNotFound(); //lancia un'eccezione se la lista filtrata è vuota

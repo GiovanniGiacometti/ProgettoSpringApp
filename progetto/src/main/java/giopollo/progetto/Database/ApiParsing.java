@@ -2,11 +2,12 @@ package giopollo.progetto.Database;
 
 import java.util.HashMap;
 import java.util.List;
-
-// TODO: Auto-generated Javadoc
 /**
- * The Class ApiParsing.
+ * Classe per parsare i follower
+ * @author Giovanni Giacometti
+ * @author Lorenzo Pollonara
  */
+
 public class ApiParsing {
 	
 		/** The users. */

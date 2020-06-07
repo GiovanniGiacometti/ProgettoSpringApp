@@ -11,20 +11,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import giopollo.progetto.Model.Data;
 import giopollo.progetto.Model.Follower;
 
-
-
-
-// TODO: Auto-generated Javadoc
 /**
- * The Class Download.
+ * Classe per effettuare il download dell'api
+ * @author Giovanni Giacometti
+ * @author Lorenzo Pollonara
  */
+
 public class Download {
 	
 	/**
-	 * Api download.
+	 * Metodo che fa il dowload dei follower e li parsa
 	 *
-	 * @param url the url
-	 * @return the list
+	 * @param url 
+	 * @return List di oggetti Follower
 	 */
 	public static List<Follower> apiDownload(String url){
 		
@@ -64,14 +63,4 @@ public class Download {
 				
 							return Data.getData(p);
 				}
-	
-	
-	
-	
-
-	
-
-	
-	
-	
 }
