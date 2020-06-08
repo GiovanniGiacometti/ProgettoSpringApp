@@ -6,27 +6,74 @@ import java.util.List;
 import giopollo.progetto.Database.Download;
 import giopollo.progetto.Model.*;
 
+/**
+ * Classe 
+ * @author Giovanni Giacometti
+ * @author Lorenzo Pollonara
+ */
+
 @org.springframework.stereotype.Service
 public class PrincipalService {
 	
+	/**
+	 * Metodo per ottenere i follower dell'account.
+	 *
+	 * @param url 
+	 * @return lista dei follower dell'account
+	 */
 	public List<Follower> getFollower (String url) 
 	{
 		return Download.apiDownload(url);
 	}
 
+	/**
+	 * Metodo per ottenere i metadata.
+	 *
+	 * @return List di stringhe
+	 */
 	public List<String> getMetadata() {
 		return Metadata.getFollowerMetadata();
 	}	
 
+	/**
+	 * Ottenere il filtro.
+	 *
+	 * @param url 
+	 * @param filter
+	 * @return lista dei follower dell'account
+	 * @throws NoSuchMethodException 
+	 * @throws InvocationTargetException
+	 * @throws ClassNotFoundException
+	 */
 	public List<Follower> getFilter(String url, String filter) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException {
 		return FilterService.decodeFilter(Download.apiDownload(url), filter);
 	}
 	
+	/**
+	 * Ottenere le statisctiche.
+	 *
+	 * @param url
+	 * @param stats
+	 * @return HashMap di stringhe e numeri
+	 * @throws NoSuchMethodException 
+	 * @throws InvocationTargetException 
+	 */
 	public HashMap<String, Number> getStats(String url,List<String> stats) throws NoSuchMethodException, InvocationTargetException{
 		return StatsService.calculate(Download.apiDownload(url),stats);
 	}
 	
 	
+	/**
+	 * Ottenere le statistiche applicando anche filtri.
+	 *
+	 * @param url
+	 * @param stats
+	 * @param filter
+	 * @return HashMap di stringhe e numeri
+	 * @throws NoSuchMethodException
+	 * @throws InvocationTargetException
+	 * @throws ClassNotFoundException
+	 */
 	public HashMap<String, Number> getStats(String url, List<String> stats, String filter) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException {
 		
 		return StatsService.calculate(FilterService.decodeFilter(Download.apiDownload(url),filter),stats);

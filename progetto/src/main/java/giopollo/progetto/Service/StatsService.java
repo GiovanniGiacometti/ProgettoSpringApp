@@ -7,9 +7,23 @@ import java.lang.reflect.Method;
 import giopollo.progetto.Model.Follower;
 import giopollo.progetto.Request.Stats.Stats;
 
+/**
+ * Classe che gestisce le statistiche 
+ * @author Giovanni Giacometti
+ * @author Lorenzo Pollonara
+ */
 
 public class StatsService {
 
+	/**
+	 * Metodo che calcola le statistiche
+	 *
+	 * @param lf lista dei follower dell'account
+	 * @param stats 
+	 * @return HashMap di stringhe e numeri
+	 * @throws NoSuchMethodException
+	 * @throws InvocationTargetException
+	 */
 	public static HashMap<String, Number> calculate(List<Follower> lf ,List<String> stats) throws NoSuchMethodException, InvocationTargetException {
 		
 		HashMap<String, Number> statistiche = new HashMap<String, Number>(); //HashMap in cui inserire i valori delle statistiche richieste
@@ -43,11 +57,5 @@ public class StatsService {
 		}
 		return statistiche; 
 	}
-		
-	
-
-	
-	
-
 }
 

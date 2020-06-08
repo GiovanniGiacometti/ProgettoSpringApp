@@ -5,7 +5,20 @@ import java.util.List;
 
 import giopollo.progetto.Model.Follower;
 
+/**
+ * Classe che esegue statistiche
+ * @author Giovanni Giacometti
+ * @author Lorenzo Pollonara
+ */
+
 public class Stats {
+	
+	/**
+	 * Metodo Media.
+	 *
+	 * @param u lista dei follower dell'account
+	 * @return float media della lunghezza della location
+	 */
 	public static float media(List<Follower> u)
 	{
 		float media=0;
@@ -19,6 +32,12 @@ public class Stats {
 		return media;
 	}
 
+	/**
+	 * Metodo All occurrences.
+	 *
+	 * @param lf lista dei follower dell'account
+	 * @return HashMap di stringhe e float 
+	 */
 	public static HashMap<String,Float> allOccurrences(List<Follower> lf)
 	{
 		HashMap<String,Float> map = new HashMap<String,Float>();
@@ -43,6 +62,12 @@ public class Stats {
 		return null;
 	}
 	
+	/**
+	 * Metodo Max.
+	 *
+	 * @param u lista dei follower dell'account
+	 * @return int massimo della lunghezza della location
+	 */
 	public static int max(List<Follower> u)
 	{
 		int max=0;
@@ -55,6 +80,12 @@ public class Stats {
 		return max;
 	}
 	
+	/**
+	 * Metodo Min.
+	 *
+	 * @param u lista dei follower dell'account
+	 * @return int minimo della lunghezza della location
+	 */
 	public static int min(List<Follower> u)
 	{
 		int min=u.get(0).getLocation().length();

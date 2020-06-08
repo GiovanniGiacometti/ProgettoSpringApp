@@ -1,18 +1,20 @@
 package giopollo.progetto.Exception;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class E_Between.
+ * Classe 
+ * @author Giovanni Giacometti
+ * @author Lorenzo Pollonara
  */
+
 public class E_Between extends E_Project{
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * Gets the message.
+	 * Ottenere il messaggio da stampare
 	 *
-	 * @return the message
+	 * @return String
 	 */
 	@Override
 	public String getMessage()

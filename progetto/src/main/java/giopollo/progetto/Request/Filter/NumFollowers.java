@@ -4,18 +4,20 @@ import java.util.List;
 import giopollo.progetto.Exception.E_NoFollowerFound;
 import giopollo.progetto.Model.Follower;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class NumFollowers.
+ * Classe che estende NumericFilters
+ * @author Giovanni Giacometti
+ * @author Lorenzo Pollonara
  */
+
 public class NumFollowers extends NumericFilters{
 
 	/**
-	 * Greater.
+	 * Metodo Greater.
 	 *
-	 * @param lista the lista
-	 * @param a the a
-	 * @return the list
+	 * @param lista lista dei follower dell'account
+	 * @param a numero intero
+	 * @return List di oggetti Follower
 	 */
 	@Override
 	public List<Follower> greater(List<Follower> lista, Integer a){
@@ -25,11 +27,11 @@ public class NumFollowers extends NumericFilters{
 	}
 
 	/**
-	 * Lower.
+	 * Metodo Lower.
 	 *
-	 * @param lista the lista
-	 * @param a the a
-	 * @return the list
+	 * @param lista lista dei follower dell'account
+	 * @param a numero intero
+	 * @return List di oggetti Follower
 	 */
 	@Override
 	public List<Follower> lower(List<Follower> lista, Integer a) {

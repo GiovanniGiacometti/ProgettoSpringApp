@@ -7,36 +7,38 @@ import giopollo.progetto.Exception.E_Between;
 import giopollo.progetto.Exception.E_NoFollowerFound;
 import giopollo.progetto.Model.Follower;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class NumericFilters.
+ * Classe astratta per i filtri con numeri
+ * @author Giovanni Giacometti
+ * @author Lorenzo Pollonara
  */
+
 public abstract class NumericFilters {
 	
 	/**
-	 * Greater.
+	 * Metodo Greater.
 	 *
-	 * @param lista the lista
-	 * @param a the a
-	 * @return the list
+	 * @param lista lista dei follower dell'account
+	 * @param a numero intero
+	 * @return List di oggetti Follower
 	 */
 	protected abstract List<Follower> greater(List<Follower> lista, Integer a);
 
 	/**
-	 * Lower.
+	 * Metodo Lower.
 	 *
-	 * @param lista the lista
-	 * @param a the a
-	 * @return the list
+	 * @param lista lista dei follower dell'account
+	 * @param a numero intero
+	 * @return List di oggetti Follower
 	 */
 	protected abstract List<Follower> lower(List<Follower> lista, Integer a);
 
 	/**
-	 * Between.
+	 * Metodo Between.
 	 *
-	 * @param lista the lista
-	 * @param extremes the extremes
-	 * @return the list
+	 * @param lista lista dei follower dell'account
+	 * @param extremes ArrayList di numeri interi
+	 * @return List di oggetti Follower
 	 */
 	public List<Follower> between(List<Follower> lista, ArrayList<Integer> extremes)
 	{

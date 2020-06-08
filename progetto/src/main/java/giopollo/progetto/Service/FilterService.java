@@ -13,8 +13,24 @@ import giopollo.progetto.Exception.E_IncorrectNumber;
 import giopollo.progetto.Exception.IncorrectFilterNumber;
 import giopollo.progetto.Model.Follower;
 
+/**
+ * Classe che gestisce i filtraggi del dataset
+ * @author Giovanni Giacometti
+ * @author Lorenzo Pollonara
+ */
+
 public class FilterService {
 	
+	/**
+	 * Metodo che decodifica il filtro passato dall'utente
+	 *
+	 * @param lf lista dei follower dell'account
+	 * @param RequestBody 
+	 * @return List di oggetti Follower filtrata
+	 * @throws NoSuchMethodException 
+	 * @throws InvocationTargetException 
+	 * @throws ClassNotFoundException 
+	 */
 	public static List<Follower> decodeFilter(List<Follower> lf, String RequestBody) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException{
 		
 			HashMap<String,Object> body = null; //HashMap in cui andrò ad inserire il body della richiesta POST
@@ -78,6 +94,16 @@ public class FilterService {
 		return lf; //lista filtrata
 	}
 	
+	/**
+	 * Metodo che applica il filtro passato dall'utente.
+	 *
+	 * @param hmBody 
+	 * @param typeFilter
+	 * @param lf lista dei follower dell'account
+	 * @return List di oggetti Follower filtrata
+	 * @throws NoSuchMethodException the no such method exception
+	 * @throws InvocationTargetException the invocation target exception
+	 */
 	private static  List<Follower> apply(HashMap<String, Object> hmBody, Object typeFilter, List<Follower> lf) throws NoSuchMethodException, InvocationTargetException {
 		
 		String s = (String) hmBody.keySet().toArray()[0]; //nome del metodo da eseguire
