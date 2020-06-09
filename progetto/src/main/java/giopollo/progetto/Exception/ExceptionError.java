@@ -22,8 +22,8 @@ public class ExceptionError {
 	 *
 	 * @param date orario della richiesta
 	 * @param httpStatus 
-	 * @param error l'eccezione generata
-	 * @param messagge messaggio dell'eccezione
+	 * @param exception l'eccezione generata
+	 * @param message messaggio dell'eccezione
 	 */
 	public ExceptionError(Calendar date, HttpStatus httpStatus, String exception, String message) {
 		super();

@@ -112,7 +112,7 @@ public class Controller {
 	/**
 	 * Metodo per gestire eccezione quando il metodo del filtro è errato 
 	 *
-	 * @param eccezione
+	 * @param e eccezione da gestire
 	 * @return oggetto di tipo Error
 	 */
 	@ExceptionHandler(NoSuchMethodException.class)
@@ -124,7 +124,7 @@ public class Controller {
 	/**
 	 * Metodo per gestire eccezione se viene immesso un filtro errato
 	 *
-	 * @param eccezione
+	 * @param e eccezione da gestire
 	 * @return oggetto di tipo Error
 	 */
 	@ExceptionHandler(ClassNotFoundException.class)
@@ -136,7 +136,7 @@ public class Controller {
 	/**
 	 * Metodo per gestire eccezioni lanciate dai metodi dei filtri
 	 *
-	 * @param eccezione
+	 * @param e eccezione da gestire
 	 * @return oggetto di tipo Error
 	 */
 	@ExceptionHandler(InvocationTargetException.class)
@@ -149,7 +149,7 @@ public class Controller {
 	/**
 	 * Metodo per gestire le eccezioni personalizzate
 	 *
-	 * @param eccezione
+	 * @param e eccezione da gestire
 	 * @return oggetto di tipo Error
 	 */
 	@ExceptionHandler(E_Project.class)
