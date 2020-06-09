@@ -9,8 +9,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import giopollo.progetto.Exception.E_IncorrectFilterMethod;
-import giopollo.progetto.Exception.E_IncorrectNumber;
-import giopollo.progetto.Exception.IncorrectFilterNumber;
 import giopollo.progetto.Model.Follower;
 
 /**
@@ -33,35 +31,20 @@ public class FilterService {
 	 */
 	public static List<Follower> decodeFilter(List<Follower> lf, String RequestBody) throws NoSuchMethodException, InvocationTargetException, ClassNotFoundException{
 		
-			HashMap<String,Object> body = null; //HashMap in cui andrò ad inserire il body della richiesta POST
+			HashMap<String,Object> filters = null; //HashMap in cui andrò ad inserire i filtri della POST
 			ObjectMapper obj = new ObjectMapper(); 
 			
 			try {
-				body = obj.readValue(RequestBody, HashMap.class); //parsing del json (ovvero RequestBody) in body
+				filters = obj.readValue(RequestBody, HashMap.class); //parsing del json (ovvero RequestBody) in filters
 			} catch (JsonMappingException e) {
 				e.printStackTrace();
 			} catch (JsonProcessingException e) {
 				e.printStackTrace();
 			}
 			
-			int numFilt = 0;
-			String numFiltStr = (String) body.keySet().toArray()[0]; //numero di filtri da applicare, preso come stringa
-			
-			try {
-				numFilt = Integer.parseInt(numFiltStr); //converto in intero il numero di filtri
-			}
-				catch(NumberFormatException e)
-				{
-					throw new E_IncorrectNumber(); // lancio eccezione se il cast non va a buon fine
-				}
-		
-			HashMap<String,Object> filters = (HashMap<String,Object>) body.get(numFiltStr); //Filters contiene i filtri da applicare; le chiavi sono i campi, i valori i metodi da eseguire
-			
-			if(filters.size() != numFilt) throw new IncorrectFilterNumber(); //lancia un'eccezione se il numero di filtri effettivamente presenti è diverso da quello indicato nella richiesta, ovvero numFilt
-			
 			Object[] ListFields = filters.keySet().toArray(); //lista con i campi da filtrare
 			
-			for(int i=0; i<numFilt; i++) //itero sui filtri presenti nella richiesta
+			for(int i=0; i<filters.size(); i++) //itero sui filtri presenti nella richiesta
 			{
 					String field = (String) ListFields[i]; //campo da filtrare (es "Location")
 					
