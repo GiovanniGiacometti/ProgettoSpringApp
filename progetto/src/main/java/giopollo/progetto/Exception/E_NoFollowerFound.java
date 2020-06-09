@@ -17,7 +17,7 @@ public class E_NoFollowerFound extends E_Project {
 	 */
 	@Override
 	public String getMessage() {
-		return "Nessun follower trovato!";
+		return "Nessun follower rispetta questi filtri!";
 	}
 
 }

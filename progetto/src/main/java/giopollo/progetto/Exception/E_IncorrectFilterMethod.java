@@ -17,7 +17,7 @@ public class E_IncorrectFilterMethod extends E_Project {
 	 */
 	@Override
 	public String getMessage() {
-		return "Il body del filtro non è valido! Ricontrolla!";
+		return "Il body del filtro non è valido! ";
 	}
 
 }

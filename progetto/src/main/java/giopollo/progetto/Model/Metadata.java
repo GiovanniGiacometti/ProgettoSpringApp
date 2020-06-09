@@ -1,7 +1,6 @@
 package giopollo.progetto.Model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 /**
  * Classe che restituisce i metadati
@@ -16,14 +15,13 @@ public class Metadata {
 	 *
 	 * @return List di String
 	 */
-	public static List<String> getFollowerMetadata() 
+	public static HashMap<String,String> getFollowerMetadata() 
 	{
-		List<String> l = new ArrayList<String> ();
-		l.add("name: nome dell'utente");
-		l.add("location: location dell'utente");
-		l.add("followers_count: numero dei follower dell'utente");
-		l.add("friends_count: numero degli account seguiti dall'utente");
-		
-		return l;
+		HashMap<String,String> metadata = new HashMap<String,String> (); //HashMap in cui le chiavi sono i metadati, i valori la descrizione
+		metadata.put("name:"," nome dell'utente");
+		metadata.put("location: ","location dell'utente");
+		metadata.put("followers_count:"," numero dei follower dell'utente");
+		metadata.put("friends_count: "," numero degli account seguiti dall'utente");
+		return metadata;
 	}
 }

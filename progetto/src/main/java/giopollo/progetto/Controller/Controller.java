@@ -1,6 +1,7 @@
 package giopollo.progetto.Controller;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import giopollo.progetto.Exception.E_Project;
+import giopollo.progetto.Exception.ExceptionError;
 import giopollo.progetto.Service.PrincipalService;
 import giopollo.progetto.Service.UrlService;
 
@@ -20,7 +22,9 @@ import giopollo.progetto.Service.UrlService;
 @RestController
 public class Controller {
 	
-	/** l'annotazione @Autowired lancia automaticamente il costruttore all'avvio di Spring */
+	/** 
+	 * l'annotazione @Autowired lancia automaticamente il costruttore all'avvio di Spring 
+	 */
 	@Autowired 
 	PrincipalService service;
 	
@@ -105,50 +109,53 @@ public class Controller {
 		return new ResponseEntity<>(service.getStats(UrlService.getUrl(user, number), stats, filter) , HttpStatus.OK);
 	}
 	
-	
 	/**
 	 * Metodo per gestire eccezione quando il metodo del filtro è errato 
 	 *
-	 * @param e
-	 * @return String
+	 * @param eccezione
+	 * @return oggetto di tipo Error
 	 */
 	@ExceptionHandler(NoSuchMethodException.class)
-	public String handleException1(NoSuchMethodException e) {
-	    return "Non trovato! Controlla di aver scritto bene!";
+	public ResponseEntity<Object> handleException1(NoSuchMethodException e) {
+		ExceptionError error = new ExceptionError(Calendar.getInstance() , HttpStatus.BAD_REQUEST , e.getClass().getCanonicalName() ,"Controlla di aver scritto bene!");
+		return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
+	}
+
+	/**
+	 * Metodo per gestire eccezione se viene immesso un filtro errato
+	 *
+	 * @param eccezione
+	 * @return oggetto di tipo Error
+	 */
+	@ExceptionHandler(ClassNotFoundException.class)
+	public ResponseEntity<Object> handleException2(ClassNotFoundException e) {
+		ExceptionError error = new ExceptionError(Calendar.getInstance() , HttpStatus.BAD_REQUEST , e.getClass().getCanonicalName() , "Filtro non corretto!");
+		return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
 	}
 	
 	/**
 	 * Metodo per gestire eccezioni lanciate dai metodi dei filtri
 	 *
-	 * @param e
-	 * @return String
+	 * @param eccezione
+	 * @return oggetto di tipo Error
 	 */
 	@ExceptionHandler(InvocationTargetException.class)
-	public String handleException2(InvocationTargetException e) {
-	    return e.getCause().getMessage();
+	public ResponseEntity<Object> handleException3(InvocationTargetException e) {
+		ExceptionError error = new ExceptionError(Calendar.getInstance() , HttpStatus.BAD_REQUEST , e.getCause().getClass().getCanonicalName(), e.getCause().getMessage());
+		return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
 	}
 	
-	/**
-	 * Metodo per gestire eccezione se viene immesso un filtro errato
-	 *
-	 * @param e
-	 * @return String
-	 */
-	@ExceptionHandler(ClassNotFoundException.class)
-	public String handleException3(ClassNotFoundException e) {
-	    return "Non esiste questo filtro!";
-	}
-	
-	
+
 	/**
 	 * Metodo per gestire le eccezioni personalizzate
 	 *
-	 * @param e
-	 * @return String
+	 * @param eccezione
+	 * @return oggetto di tipo Error
 	 */
 	@ExceptionHandler(E_Project.class)
-	public String handleException4(E_Project e) {
-	    return e.getMessage();
+	public ResponseEntity<Object> handleException4(E_Project e) {
+		ExceptionError error = new ExceptionError(Calendar.getInstance() , HttpStatus.BAD_REQUEST , e.getClass().getCanonicalName() , e.getMessage());
+		return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
 	}
 
 	

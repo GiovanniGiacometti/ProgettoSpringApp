@@ -28,6 +28,8 @@ public class StatsService {
 		
 		HashMap<String, Number> statistiche = new HashMap<String, Number>(); //HashMap in cui inserire i valori delle statistiche richieste
 		
+		statistiche.put("Follower analizzati: ", lf.size());
+		
 		Stats f = new Stats(); //la classe in cui sono contenuti i metodi per il calcolo delle statistiche 
 		
 		if(stats.size()==0) 
@@ -55,6 +57,7 @@ public class StatsService {
 				e.printStackTrace();
 			} 
 		}
+		
 		return statistiche; 
 	}
 }

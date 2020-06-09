@@ -31,7 +31,7 @@ public class PrincipalService {
 	 *
 	 * @return List di stringhe
 	 */
-	public List<String> getMetadata() {
+	public HashMap<String, String> getMetadata() {
 		return Metadata.getFollowerMetadata();
 	}	
 
