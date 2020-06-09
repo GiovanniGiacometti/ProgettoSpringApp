@@ -102,12 +102,6 @@ function loadScripts(doc, tag) {
     if (!tagSearchIndex) {
         createElem(doc, tag, 'tag-search-index.js');
     }
-<<<<<<< HEAD
-=======
-    $(window).resize(function() {
-        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
-    });
->>>>>>> branch 'master' of https://github.com/GiovanniGiacometti/ProgettoSpringApp
 }
 
 function createElem(doc, tag, path) {

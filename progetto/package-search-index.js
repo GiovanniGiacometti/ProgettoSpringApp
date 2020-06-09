@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"giopollo.progetto"},{"l":"giopollo.progetto.Controller"},{"l":"giopollo.progetto.Database"},{"l":"giopollo.progetto.Exception"},{"l":"giopollo.progetto.Model"},{"l":"giopollo.progetto.Request.Filter"},{"l":"giopollo.progetto.Request.Stats"},{"l":"giopollo.progetto.Service"}]

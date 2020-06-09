@@ -26,7 +26,7 @@ public class Stats {
 	}
 
 	/**
-	 * Metodo Media.
+	 * Metodo per calcolare la media del numero di caratteri della location dei follower
 	 *
 	 * @param lf lista dei follower dell'account
 	 * @return float media della lunghezza della location
@@ -45,9 +45,9 @@ public class Stats {
 	}
 
 	/**
-	 * Metodo Max.
+	 * Metodo per calcolare il numero massimo di caratteri della location dei follower
 	 *
-	 * @param u lista dei follower dell'account
+	 * @param lf lista dei follower dell'account
 	 * @return int massimo della lunghezza della location
 	 */
 	public static int max(List<Follower> lf)
@@ -63,9 +63,9 @@ public class Stats {
 	}
 	
 	/**
-	 * Metodo Min.
+	 * Metodo per calcolare il numero minimo di caratteri della location dei follower
 	 *
-	 * @param u lista dei follower dell'account
+	 * @param lf lista dei follower dell'account
 	 * @return int minimo della lunghezza della location
 	 */
 	public static int min(List<Follower> lf)
@@ -80,7 +80,7 @@ public class Stats {
 	}
 	
 	/**
-     * Metodo per calcolare la varianza sul numero dei caratteri della location
+     * Metodo per calcolare la varianza sul numero dei caratteri della location dei follower
      *
      * @param lista lista dei follower dell'account
      * @return double varianza 
@@ -95,7 +95,7 @@ public class Stats {
     }
     
 	 /**
-     * Metodo per calcolare la deviazione standard sul numero dei caratteri della location
+     * Metodo per calcolare la deviazione standard sul numero dei caratteri della location dei follower
      *
      * @param lista lista dei follower dell'account
      * @return double deviazione standard 
