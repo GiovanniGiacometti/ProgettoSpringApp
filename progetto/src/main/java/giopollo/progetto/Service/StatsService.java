@@ -28,13 +28,14 @@ public class StatsService {
 		
 		HashMap<String, Number> statistiche = new HashMap<String, Number>(); //HashMap in cui inserire i valori delle statistiche richieste
 		
+		Stats f = new Stats(); //la classe in cui sono contenuti i metodi per il calcolo delle statistiche 
+		
 		if(stats.size()==0) 
 		{
-			stats.add("media");stats.add("max");stats.add("min"); //se la lista è vuota, vengono fornite tutte le statistiche disponibili
+			stats.addAll(Stats.allStats);  //se la lista è vuota, vengono fornite tutte le statistiche disponibili
 		}
 		
-		Stats f = new Stats(); //la classe in cui sono contenuti i metodi per il calcolo delle statistiche
-		
+
 		for(String s : stats ) //itero su tutte le statistiche richieste
 		{ 
 			Method method = null;
@@ -53,7 +54,6 @@ public class StatsService {
 				
 				e.printStackTrace();
 			} 
-			
 		}
 		return statistiche; 
 	}
