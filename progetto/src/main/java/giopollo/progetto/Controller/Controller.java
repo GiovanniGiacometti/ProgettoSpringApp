@@ -107,7 +107,7 @@ public class Controller {
 	
 	
 	/**
-	 * Metodo per gestire eccezione 
+	 * Metodo per gestire eccezione quando il metodo del filtro è errato 
 	 *
 	 * @param e
 	 * @return String
@@ -118,10 +118,10 @@ public class Controller {
 	}
 	
 	/**
-	 * Handle exception 2.
+	 * Metodo per gestire eccezioni lanciate dai metodi dei filtri
 	 *
-	 * @param e the e
-	 * @return the string
+	 * @param e
+	 * @return String
 	 */
 	@ExceptionHandler(InvocationTargetException.class)
 	public String handleException2(InvocationTargetException e) {
@@ -141,10 +141,10 @@ public class Controller {
 	
 	
 	/**
-	 * Handle exception 4.
+	 * Metodo per gestire le eccezioni personalizzate
 	 *
-	 * @param e the e
-	 * @return the string
+	 * @param e
+	 * @return String
 	 */
 	@ExceptionHandler(E_Project.class)
 	public String handleException4(E_Project e) {

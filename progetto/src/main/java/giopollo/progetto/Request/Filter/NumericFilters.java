@@ -8,7 +8,7 @@ import giopollo.progetto.Exception.E_NoFollowerFound;
 import giopollo.progetto.Model.Follower;
 
 /**
- * Classe astratta per i filtri con numeri
+ * Classe astratta per i filtri di tipo numerico
  * @author Giovanni Giacometti
  * @author Lorenzo Pollonara
  */
@@ -20,7 +20,7 @@ public abstract class NumericFilters {
 	 *
 	 * @param lista lista dei follower dell'account
 	 * @param a numero intero
-	 * @return List di oggetti Follower
+	 * @return List di oggetti Follower filtrati
 	 */
 	protected abstract List<Follower> greater(List<Follower> lista, Integer a);
 
@@ -29,7 +29,7 @@ public abstract class NumericFilters {
 	 *
 	 * @param lista lista dei follower dell'account
 	 * @param a numero intero
-	 * @return List di oggetti Follower
+	 * @return List di oggetti Follower filtrati
 	 */
 	protected abstract List<Follower> lower(List<Follower> lista, Integer a);
 
@@ -38,7 +38,7 @@ public abstract class NumericFilters {
 	 *
 	 * @param lista lista dei follower dell'account
 	 * @param extremes ArrayList di numeri interi
-	 * @return List di oggetti Follower
+	 * @return List di oggetti Follower filtrati
 	 */
 	public List<Follower> between(List<Follower> lista, ArrayList<Integer> extremes)
 	{

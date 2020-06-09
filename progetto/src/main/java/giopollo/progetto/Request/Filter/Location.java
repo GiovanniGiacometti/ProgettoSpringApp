@@ -19,7 +19,7 @@ public class Location extends NumericFilters{
 	 *
 	 * @param lf lista di follower dell'account
 	 * @param a numero di caratteri inserito dall'utente
-	 * @return List di oggetti Follower
+	 * @return List di oggetti Follower filtrati
 	 */
 	@Override
 	public List<Follower> greater(List<Follower> lf, Integer a)
@@ -34,7 +34,7 @@ public class Location extends NumericFilters{
 	 *
 	 * @param lf lista di follower dell'account
 	 * @param a numero di caratteri inserito dall'utente
-	 * @return List di oggetti Follower
+	 * @return List di oggetti Follower filtrati
 	 */
 	@Override
 	public List<Follower> lower(List<Follower> lf, Integer a)
@@ -49,7 +49,7 @@ public class Location extends NumericFilters{
 	 *
 	 * @param lf lista di follower dell'account
 	 * @param a numero di caratteri inserito dall'utente
-	 * @return List di oggetti Follower
+	 * @return List di oggetti Follower filtrati
 	 */
 	public List<Follower> word(List<Follower> lf, String a){
 		lf.removeIf(f->(!f.getLocation().contains(a))); //rimuove gli utenti la cui location non contiene la stringa "a"
@@ -62,7 +62,7 @@ public class Location extends NumericFilters{
 	 *
 	 * @param lf lista di follower dell'account
 	 * @param a numero di caratteri inserito dall'utente
-	 * @return List di oggetti Follower
+	 * @return List di oggetti Follower filtrati
 	 */
 	public List<Follower> fullLoc(List<Follower> lf, String a){
 		lf.removeIf(f->(!f.getLocation().equals(a))); //rimuove gli utenti la cui location non sia identica alla stringa "a"

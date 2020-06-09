@@ -8,26 +8,22 @@ package giopollo.progetto.Model;
 
 public class Follower {
 	
-	/** The name. */
 	private String name; //nome dell'utente 
 	
-	/** The location. */
 	private String location; // location dell'utente 
 	
-	/** The followers count. */
 	private int followers_count; //numero degli account che seguono l'utente
 	
-	/** The friends count. */
 	private int friends_count; //numero degli account seguiti dall'utente
 	
 	/**
-	 * Costruttore di un Follower
+	 * Costruttore di Follower
 	 */
 	public Follower() {
 	}
 	
 	/**
-	 * Costruttore di un Follower con "parametri"
+	 * Costruttore di Follower con "parametri"
 	 *
 	 * @param name nome dell'account
 	 * @param location
@@ -43,16 +39,16 @@ public class Follower {
 	}
 	
 	/**
-	 * Ottenere il numero dei follower dell'account
+	 * Ottiene il numero dei follower dell'account
 	 *
-	 * @return int numero intero
+	 * @return int
 	 */
 	public int getFollowers_count() {
 		return followers_count;
 	}
 	
 	/**
-	 * Settare il numero dei follower dell'account
+	 * Setta il numero dei follower dell'account
 	 *
 	 * @param followers_count
 	 */
@@ -61,16 +57,16 @@ public class Follower {
 	}
 	
 	/**
-	 * Ottenere il numero degli amici dell'account
+	 * Ottiene il numero degli amici dell'account
 	 *
-	 * @return int numero intero
+	 * @return int
 	 */
 	public int getFriends_count() {
 		return friends_count;
 	}
 	
 	/**
-	 * Settare il numero degli amici dell'account
+	 * Setta il numero degli amici dell'account
 	 *
 	 * @param friends_count
 	 */
@@ -79,7 +75,7 @@ public class Follower {
 	}
 	
 	/**
-	 * Ottnere il nome dell'account
+	 * Ottiene il nome dell'account
 	 *
 	 * @return String
 	 */
@@ -89,7 +85,7 @@ public class Follower {
 	}
 
 	/**
-	 * Settare il nome dell'account
+	 * Setta il nome dell'account
 	 *
 	 * @param name
 	 */
@@ -98,7 +94,7 @@ public class Follower {
 	}
 
 	/**
-	 * Ottenere la location
+	 * Ottiene la location
 	 *
 	 * @return String 
 	 */
@@ -107,7 +103,7 @@ public class Follower {
 	}
 
 	/**
-	 * Settare la location
+	 * Setta la location
 	 *
 	 * @param location
 	 */

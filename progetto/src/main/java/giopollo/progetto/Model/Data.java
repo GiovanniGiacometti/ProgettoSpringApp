@@ -7,7 +7,7 @@ import java.util.List;
 import giopollo.progetto.Database.ApiParsing;
 
 /**
- * Classe che ottiene tutti i data di ogni follower
+ * Classe che ottiene i dati richiesti di ogni follower
  * @author Giovanni Giacometti
  * @author Lorenzo Pollonara
  */
@@ -15,7 +15,7 @@ import giopollo.progetto.Database.ApiParsing;
 	public class Data {
 
 		/**
-		 * Metodo ottiene i data e li inserisce dentro ogni follower
+		 * Metodo che estrae i dati richiesti a partire dall'api e li inserisce in una lista di follower
 		 *
 		 * @param p follower parsati
 		 * @return List di oggetti Follower
@@ -27,7 +27,7 @@ import giopollo.progetto.Database.ApiParsing;
 			if ( p.users.size() > 0)
 				for(HashMap<String,Object> hm : p.users)
 				{
-					f = new Follower("","", 0, 0);
+					f = new Follower();
 					f.setLocation((String)hm.get("location"));
 					f.setName((String)hm.get("name")); 
 					f.setFollowers_count((int)hm.get("followers_count"));

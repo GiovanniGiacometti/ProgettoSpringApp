@@ -20,7 +20,7 @@ import giopollo.progetto.Model.Follower;
 public class Download {
 	
 	/**
-	 * Metodo che fa il dowload dei follower e li parsa
+	 * Metodo che fa il download dei follower e li parsa
 	 *
 	 * @param url 
 	 * @return List di oggetti Follower

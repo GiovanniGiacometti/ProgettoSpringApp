@@ -12,7 +12,7 @@ import java.util.List;
 public class Metadata {
 	
 	/**
-	 * Ottenere i metadata di un follower 
+	 * Ottiene i metadata di un follower 
 	 *
 	 * @return List di String
 	 */

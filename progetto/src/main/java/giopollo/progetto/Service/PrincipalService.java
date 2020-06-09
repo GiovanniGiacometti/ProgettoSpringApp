@@ -7,7 +7,7 @@ import giopollo.progetto.Database.Download;
 import giopollo.progetto.Model.*;
 
 /**
- * Classe 
+ * Service principale 
  * @author Giovanni Giacometti
  * @author Lorenzo Pollonara
  */
@@ -27,7 +27,7 @@ public class PrincipalService {
 	}
 
 	/**
-	 * Metodo per ottenere i metadata.
+	 * Metodo per ottenere i metadati.
 	 *
 	 * @return List di stringhe
 	 */
@@ -36,7 +36,7 @@ public class PrincipalService {
 	}	
 
 	/**
-	 * Ottenere il filtro.
+	 * Metodo per ottenere i follower filtrati.
 	 *
 	 * @param url 
 	 * @param filter
@@ -50,7 +50,7 @@ public class PrincipalService {
 	}
 	
 	/**
-	 * Ottenere le statisctiche.
+	 * Metodo per ottenere le statistiche.
 	 *
 	 * @param url
 	 * @param stats
@@ -64,7 +64,7 @@ public class PrincipalService {
 	
 	
 	/**
-	 * Ottenere le statistiche applicando anche filtri.
+	 * Metodo per ottenere le statistiche su follower già filtrati
 	 *
 	 * @param url
 	 * @param stats

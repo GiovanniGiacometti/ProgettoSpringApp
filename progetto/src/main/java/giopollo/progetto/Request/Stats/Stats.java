@@ -6,7 +6,7 @@ import java.util.List;
 import giopollo.progetto.Model.Follower;
 
 /**
- * Classe che esegue statistiche
+ * Classe che calcola le statistiche
  * @author Giovanni Giacometti
  * @author Lorenzo Pollonara
  */
@@ -32,36 +32,6 @@ public class Stats {
 		return media;
 	}
 
-	/**
-	 * Metodo All occurrences.
-	 *
-	 * @param lf lista dei follower dell'account
-	 * @return HashMap di stringhe e float 
-	 */
-	public static HashMap<String,Float> allOccurrences(List<Follower> lf)
-	{
-		HashMap<String,Float> map = new HashMap<String,Float>();
-		if(lf.size()>0)
-		{
-			for(int i=0;i<lf.size();i++)
-			{
-				String s = lf.get(i).getLocation().toUpperCase();
-				if (map.containsKey(s))	
-				{
-					float occ = map.get(s);
-					map.put(s, occ+1);
-				}
-				else 
-				{
-					float a = 1;
-					map.put(s, a);
-				}
-			}
-			return map;
-		}
-		return null;
-	}
-	
 	/**
 	 * Metodo Max.
 	 *

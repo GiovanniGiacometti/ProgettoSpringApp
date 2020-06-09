@@ -5,7 +5,7 @@ import giopollo.progetto.Exception.E_NoFollowerFound;
 import giopollo.progetto.Model.Follower;
 
 /**
- * Classe che estende NumericFilters
+ * Classe per filtrare il numero dei follower
  * @author Giovanni Giacometti
  * @author Lorenzo Pollonara
  */
@@ -17,7 +17,7 @@ public class NumFollowers extends NumericFilters{
 	 *
 	 * @param lista lista dei follower dell'account
 	 * @param a numero intero
-	 * @return List di oggetti Follower
+	 * @return List di oggetti Follower filtrati
 	 */
 	@Override
 	public List<Follower> greater(List<Follower> lista, Integer a){
@@ -31,7 +31,7 @@ public class NumFollowers extends NumericFilters{
 	 *
 	 * @param lista lista dei follower dell'account
 	 * @param a numero intero
-	 * @return List di oggetti Follower
+	 * @return List di oggetti Follower filtrati
 	 */
 	@Override
 	public List<Follower> lower(List<Follower> lista, Integer a) {

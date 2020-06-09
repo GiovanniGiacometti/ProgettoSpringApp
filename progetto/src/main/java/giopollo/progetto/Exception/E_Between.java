@@ -1,14 +1,13 @@
 package giopollo.progetto.Exception;
 
 /**
- * Classe 
+ * Eccezione lanciata se i parametri del filtro between sono errati
  * @author Giovanni Giacometti
  * @author Lorenzo Pollonara
  */
 
 public class E_Between extends E_Project{
 
-	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	
 	/**

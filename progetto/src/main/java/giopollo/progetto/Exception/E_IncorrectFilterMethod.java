@@ -1,18 +1,17 @@
 package giopollo.progetto.Exception;
 
 /**
- * Classe 
+ * Eccezione lanciata se i metodi dei filtri sono errati
  * @author Giovanni Giacometti
  * @author Lorenzo Pollonara
  */
 
 public class E_IncorrectFilterMethod extends E_Project {
 
-	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Ottenere il messaggio da stampare
+	 * Ottiene il messaggio da stampare
 	 *
 	 * @return String
 	 */

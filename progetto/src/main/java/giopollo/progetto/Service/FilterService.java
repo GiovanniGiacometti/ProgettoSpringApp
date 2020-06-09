@@ -25,7 +25,7 @@ public class FilterService {
 	 * Metodo che decodifica il filtro passato dall'utente
 	 *
 	 * @param lf lista dei follower dell'account
-	 * @param RequestBody 
+	 * @param RequestBody body della POST
 	 * @return List di oggetti Follower filtrata
 	 * @throws NoSuchMethodException 
 	 * @throws InvocationTargetException 
@@ -97,8 +97,8 @@ public class FilterService {
 	/**
 	 * Metodo che applica il filtro passato dall'utente.
 	 *
-	 * @param hmBody 
-	 * @param typeFilter
+	 * @param hmBody metodo da eseguire
+	 * @param typeFilter campo su cui eseguire il filtro
 	 * @param lf lista dei follower dell'account
 	 * @return List di oggetti Follower filtrata
 	 * @throws NoSuchMethodException the no such method exception
@@ -126,8 +126,6 @@ public class FilterService {
 		
 		return lf;
 	}
-
-
 }
 
 
