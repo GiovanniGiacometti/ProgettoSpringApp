@@ -14,7 +14,7 @@ import giopollo.progetto.Model.Follower;
 
 public class Stats {
 	
-	public static List<String> allStats = new ArrayList<String>();
+	private static List<String> allStats = new ArrayList<String>();
 	
 	/**
 	 * Costruttore Stats.
@@ -24,7 +24,16 @@ public class Stats {
 	{
 		 allStats.add("media"); allStats.add("min"); allStats.add("max"); allStats.add("devStd"); allStats.add("var");
 	}
-
+	
+	/**
+	 * Metodo per ottenere la lista con tutte le statistiche
+	 *
+	 * @return List di Stringhe
+	 */
+	public static List<String> getAllStats()
+	{
+		return allStats;
+	}
 	/**
 	 * Metodo per calcolare la media del numero di caratteri della location dei follower
 	 *

@@ -34,7 +34,7 @@ public class StatsService {
 		
 		if(stats.size()==0) 
 		{
-			stats.addAll(Stats.allStats);  //se la lista è vuota, vengono fornite tutte le statistiche disponibili
+			stats.addAll(Stats.getAllStats());  //se la lista è vuota, vengono fornite tutte le statistiche disponibili
 		}
 		
 

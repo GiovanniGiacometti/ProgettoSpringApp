@@ -47,7 +47,7 @@ public class Controller {
 	/**
 	 * Metodo per gestire la richiesta GET alla rotta "/follower/metadata", restituendo tutti i metadati
 	 *
-	 * @return List di stringhe
+	 * @return HashMap<String,String>
 	 */
 	@RequestMapping(value = "/follower/metadata",  method = RequestMethod.GET)
 	public ResponseEntity<Object> getMetadata()
@@ -113,10 +113,10 @@ public class Controller {
 	 * Metodo per gestire eccezione quando il metodo del filtro è errato 
 	 *
 	 * @param e eccezione da gestire
-	 * @return oggetto di tipo Error
+	 * @return oggetto di tipo ExceptionError
 	 */
 	@ExceptionHandler(NoSuchMethodException.class)
-	public ResponseEntity<Object> handleException1(NoSuchMethodException e) {
+	public ResponseEntity<Object> handleNoSuchMethodException(NoSuchMethodException e) {
 		ExceptionError error = new ExceptionError(Calendar.getInstance() , HttpStatus.BAD_REQUEST , e.getClass().getCanonicalName() ,"Controlla di aver scritto bene!");
 		return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
 	}
@@ -125,10 +125,10 @@ public class Controller {
 	 * Metodo per gestire eccezione se viene immesso un filtro errato
 	 *
 	 * @param e eccezione da gestire
-	 * @return oggetto di tipo Error
+	 * @return oggetto di tipo ExceptionError
 	 */
 	@ExceptionHandler(ClassNotFoundException.class)
-	public ResponseEntity<Object> handleException2(ClassNotFoundException e) {
+	public ResponseEntity<Object> handleClassNotFoundException(ClassNotFoundException e) {
 		ExceptionError error = new ExceptionError(Calendar.getInstance() , HttpStatus.BAD_REQUEST , e.getClass().getCanonicalName() , "Filtro non corretto!");
 		return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
 	}
@@ -137,10 +137,10 @@ public class Controller {
 	 * Metodo per gestire eccezioni lanciate dai metodi dei filtri
 	 *
 	 * @param e eccezione da gestire
-	 * @return oggetto di tipo Error
+	 * @return oggetto di tipo ExceptionError
 	 */
 	@ExceptionHandler(InvocationTargetException.class)
-	public ResponseEntity<Object> handleException3(InvocationTargetException e) {
+	public ResponseEntity<Object> handleInvocationTargetException(InvocationTargetException e) {
 		ExceptionError error = new ExceptionError(Calendar.getInstance() , HttpStatus.BAD_REQUEST , e.getCause().getClass().getCanonicalName(), e.getCause().getMessage());
 		return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
 	}
@@ -150,10 +150,10 @@ public class Controller {
 	 * Metodo per gestire le eccezioni personalizzate
 	 *
 	 * @param e eccezione da gestire
-	 * @return oggetto di tipo Error
+	 * @return oggetto di tipo ExceptionError
 	 */
 	@ExceptionHandler(E_Project.class)
-	public ResponseEntity<Object> handleException4(E_Project e) {
+	public ResponseEntity<Object> handleE_Project(E_Project e) {
 		ExceptionError error = new ExceptionError(Calendar.getInstance() , HttpStatus.BAD_REQUEST , e.getClass().getCanonicalName() , e.getMessage());
 		return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
 	}

@@ -1,8 +1,1 @@
-giopollo.progetto
-giopollo.progetto.Controller
-giopollo.progetto.Database
-giopollo.progetto.Exception
-giopollo.progetto.Model
-giopollo.progetto.Request.Filter
 giopollo.progetto.Request.Stats
-giopollo.progetto.Service
