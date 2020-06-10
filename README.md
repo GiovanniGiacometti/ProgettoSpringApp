@@ -50,7 +50,13 @@ La location è invece una stringa di caratteri. Si possono applicare gli stessi 
 E' possibile effettuare più filtri contemporaneamente, anche sullo stesso campo.
 La sintassi è la seguente: ` { "campo" : { "metodo" : parametro} , "campo" : { "metodo" : parametro} }`
 
-SCREEN (FILTRO SINGOLO, DOPPIO, ERRORE)
+Di seguito vi sono alcuni esempi di chiamate con filtri.
+
+* [Filtro Singolo](https://github.com/GiovanniGiacometti/ProgettoSpringApp/blob/master/progetto/Screen/Filtro%20singolo.png)
+* [Filtro Doppio](https://github.com/GiovanniGiacometti/ProgettoSpringApp/blob/master/progetto/Screen/Filtro%20doppio.png)
+* [Filtro non corretto](https://github.com/GiovanniGiacometti/ProgettoSpringApp/blob/master/progetto/Screen/FiltroNonCorretto.png)
+* [Nessun follower rispetta il filtro](https://github.com/GiovanniGiacometti/ProgettoSpringApp/blob/master/progetto/Screen/NessunaParola.png)
+
 
 ### Statistiche
 La nostra applicazione consente di effettuare statistiche sul campo "location", in particolare sul numero di caratteri presenti.
@@ -66,7 +72,11 @@ Data quindi una lista di follower, ognuno caratterizzato da una location, le sta
 Prima di ogni chiamata, viene comunicato il numero di follower presi in considerazione (nel caso di filtraggio non sono predeterminati).
 
   
-SCREEN (UNA STATS SPECIFICATA, NESSUNA STATS, ERRORE, FILTRO E NON)
+Di seguito, alcuni esempi di chiamate con statistiche.
+* [Alcune statistiche, specificate come parametri](https://github.com/GiovanniGiacometti/ProgettoSpringApp/blob/master/progetto/Screen/SomeStats.png)
+* [Parametro stats vuoto, vengono eseguite tutte le statistiche](https://github.com/GiovanniGiacometti/ProgettoSpringApp/blob/master/progetto/Screen/AllStats.png)
+* [Statistiche richieste su un dataset filtrato](https://github.com/GiovanniGiacometti/ProgettoSpringApp/blob/master/progetto/Screen/StatsWithFIlter.png)
+* [Statistica non esistente, errore](https://github.com/GiovanniGiacometti/ProgettoSpringApp/blob/master/progetto/Screen/StatsError.png)
 
 ## Sviluppo
 ### CLASSI
@@ -90,7 +100,7 @@ La classe Download si occupa di comunicare con l'API di twitter, ususfruendo del
 La classe Follower rappresenta il modello su cui si basa il progetto. La classa Data effettua il parsing dei dati. La classe Metadata gestisce i metadata del progetto.
 
 #### giopollo.progetto.Service :
-<img src ="Diagrammi%20UML/UML%20-%20Class%20Diagram/Service.jpg" height = 300>
+<img src ="Diagrammi%20UML/UML%20-%20Class%20Diagram/Service.jpg" height = 600>
 
 La classe urlService gestisce l'URL cui indirizzarsi a seconda della richiesta effettuata dall'utente.
 La classe StatsService gestisce le statistiche, invocando i metodi della classe Request.Stats corrispondenti alle richieste dell'utente.
