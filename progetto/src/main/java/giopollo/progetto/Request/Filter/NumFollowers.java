@@ -10,7 +10,7 @@ import giopollo.progetto.Model.Follower;
  * @author Lorenzo Pollonara
  */
 
-public class NumFollowers extends NumericFilters{
+public class NumFollowers extends BetweenFilter{
 
 	/**
 	 * Metodo Greater.

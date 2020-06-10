@@ -13,25 +13,7 @@ import giopollo.progetto.Model.Follower;
  * @author Lorenzo Pollonara
  */
 
-public abstract class NumericFilters {
-	
-	/**
-	 * Metodo Greater.
-	 *
-	 * @param lista lista dei follower dell'account
-	 * @param a numero intero
-	 * @return List di oggetti Follower filtrati
-	 */
-	protected abstract List<Follower> greater(List<Follower> lista, Integer a);
-
-	/**
-	 * Metodo Lower.
-	 *
-	 * @param lista lista dei follower dell'account
-	 * @param a numero intero
-	 * @return List di oggetti Follower filtrati
-	 */
-	protected abstract List<Follower> lower(List<Follower> lista, Integer a);
+public abstract class BetweenFilter implements NumericFilter {
 
 	/**
 	 * Metodo Between.

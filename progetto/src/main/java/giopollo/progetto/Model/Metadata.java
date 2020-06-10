@@ -13,7 +13,7 @@ public class Metadata {
 	/**
 	 * Ottiene i metadata di un follower 
 	 *
-	 * @return HashMap<String,String>
+ 	 * @return HashMap di String,String
 	 */
 	public static HashMap<String,String> getFollowerMetadata() 
 	{

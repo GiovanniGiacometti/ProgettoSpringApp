@@ -12,7 +12,7 @@ import giopollo.progetto.Model.Follower;
  * @author Lorenzo Pollonara
  */
 
-public class Location extends NumericFilters{
+public class Location extends BetweenFilter implements StringFilter{
 	
 	/**
 	 * Filtro che restituisce i follower la cui location ha più caratteri rispetto al numero inserito dall'utente
@@ -44,6 +44,7 @@ public class Location extends NumericFilters{
 		return lf;
 	}
 	
+	
 	/**
 	 * Filtro che restituisce i follower nella cui location compare la parola inserita dall'utente
 	 *
@@ -51,12 +52,14 @@ public class Location extends NumericFilters{
 	 * @param a numero di caratteri inserito dall'utente
 	 * @return List di oggetti Follower filtrati
 	 */
+	@Override
 	public List<Follower> word(List<Follower> lf, String a){
 		lf.removeIf(f->(!f.getLocation().contains(a))); //rimuove gli utenti la cui location non contiene la stringa "a"
 		if(lf.isEmpty()) throw new E_wordNotFound(); //lancia un'eccezione se la lista filtrata è vuota
 		return lf;		
 	}
 	
+
 	/**
 	 * Filtro che restituisce i follower la cui location è uguale alla parola inserita dall'utente
 	 *
@@ -64,6 +67,7 @@ public class Location extends NumericFilters{
 	 * @param a numero di caratteri inserito dall'utente
 	 * @return List di oggetti Follower filtrati
 	 */
+	@Override
 	public List<Follower> fullLoc(List<Follower> lf, String a){
 		lf.removeIf(f->(!f.getLocation().equals(a))); //rimuove gli utenti la cui location non sia identica alla stringa "a"
 		if(lf.isEmpty()) throw new E_wordNotFound(); //lancia un'eccezione se la lista filtrata è vuota

@@ -29,7 +29,7 @@ public class PrincipalService {
 	/**
 	 * Metodo per ottenere i metadati.
 	 *
-	 * @return List di stringhe
+	 * @return HashMap di String,String
 	 */
 	public HashMap<String, String> getMetadata() {
 		return Metadata.getFollowerMetadata();

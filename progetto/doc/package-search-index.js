@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"giopollo.progetto.Request.Stats"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"giopollo.progetto.Controller"}]

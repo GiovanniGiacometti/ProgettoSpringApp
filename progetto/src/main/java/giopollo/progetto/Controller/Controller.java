@@ -47,7 +47,7 @@ public class Controller {
 	/**
 	 * Metodo per gestire la richiesta GET alla rotta "/follower/metadata", restituendo tutti i metadati
 	 *
-	 * @return HashMap<String,String>
+	 * @return HashMap di String,String
 	 */
 	@RequestMapping(value = "/follower/metadata",  method = RequestMethod.GET)
 	public ResponseEntity<Object> getMetadata()
