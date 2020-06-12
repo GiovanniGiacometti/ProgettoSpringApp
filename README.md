@@ -17,7 +17,7 @@ La nostra applicazione, ad ogni chiamata, comunica con le API di twitter ed effe
 Dopo aver avviato l'applicazione, sarà possibile interrogarla attraverso un API testing, ad esempio POSTMAN, all'indirizzo http://localhost:8080.
 
 Come rappresentato dal diagramma UML dei casi d'uso, l'applicazione fornisce 5 rotte diverse, 3 di tipo GET e 2 di tipo POST. 
-In ogni richiesta possono essere inseriti dei parametri opzionali, quali "user", ovvero il nome dell'utente che si vuole esaminare, e "number", ovvero il numero di follower da analizzare. Qualora non venissero inseriti, vengono utilizzati i parametri di default, rispettivamente "efrontoni" (grazie prof per la disponibilità del suo account) e "20".
+In ogni richiesta possono essere inseriti dei parametri opzionali, quali "user", ovvero il nome dell'utente che si vuole esaminare, e "number", ovvero il numero di follower da analizzare. Qualora non venissero inseriti, vengono utilizzati i parametri di default, rispettivamente "efrontoni" e "20".
 
 I filtri devono essere inseriti nel body della richiesta POST in formato JSON. 
 
@@ -55,7 +55,6 @@ Di seguito vi sono alcuni esempi di chiamate con filtri.
 * [Filtro Singolo](https://github.com/GiovanniGiacometti/ProgettoSpringApp/blob/master/progetto/Screen/Filtro%20singolo.png)
 * [Filtro Doppio](https://github.com/GiovanniGiacometti/ProgettoSpringApp/blob/master/progetto/Screen/Filtro%20doppio.png)
 * [Filtro non corretto](https://github.com/GiovanniGiacometti/ProgettoSpringApp/blob/master/progetto/Screen/FiltroNonCorretto.png)
-* [Nessun follower rispetta il filtro](https://github.com/GiovanniGiacometti/ProgettoSpringApp/blob/master/progetto/Screen/NessunaParola.png)
 
 
 ### Statistiche
@@ -103,12 +102,80 @@ La classe Follower rappresenta il modello su cui si basa il progetto. La classa 
 <img src ="Diagrammi%20UML/UML%20-%20Class%20Diagram/Service.jpg" height = 600>
 
 La classe urlService gestisce l'URL cui indirizzarsi a seconda della richiesta effettuata dall'utente.
-La classe StatsService gestisce le statistiche, invocando i metodi della classe Request.Stats corrispondenti alle richieste dell'utente.
+
+La classe StatsService gestisce le statistiche, invocando in modo ciclico i metodi della classe Request.Stats corrispondenti alle richieste dell'utente.
+
 La classe FilterService gestisce la decodifica dei filtri. Ricevuto il JSON, itera su tutti i filtri istanziando le classi del package Request.Filter e richiamandone i metodi richiesti.
+
 La classe PrincipalService, infine, amministra le richieste dirottandole sui rispettivi Service.
 
+#### giopollo.progetto.Request.Filter :
+<img src ="Diagrammi%20UML/UML%20-%20Class%20Diagram/Request.Filter.jpg" width = 1000>
 
+Questo package contiene le classi necessarie alla realizzazione dei filtri. Quando l'utente vuole effettuare un filtro su un parametro, l'applicazione instanzia la classe corrispondente (NumFriends, NumFollowers e Location) e ne richiama poi il metodo desiderato.
 
+I metodi disponibili sono organizzati in due interfacce, una per i filtri di tipo numerico, l'altra per i filtri di tipo "stringa".
 
+Inoltre è presente una classe astratta che contiene l'implementazione del filtro Between.
 
+#### giopollo.progetto.Request.Stats :
+<img src ="Diagrammi%20UML/UML%20-%20Class%20Diagram/Request.Stats.jpg" height = 300>
+
+La classe contiene i metodi necessari al calcolo delle statistiche. 
+
+#### giopollo.progetto.Exception :
+<img src ="Diagrammi%20UML/UML%20-%20Class%20Diagram/Exception.jpg" height = 400>
+
+Questo package contiene le eccezioni personalizzate e la classe ExceptionError, che viene restituita al client sotto forma di JSON qualora si verifichi un'eccezione.
+
+Tutte le eccezioni ereditano dalla classe astratta E_Project.
+
+L'eccezione E_NoFollowerFound viene lanciata quando non vi sono follower che rispettano il filtro desiderato.
+
+L'eccezione E_wordNotFound viene lanciata quando non ci sono follower nella cui location vi sia la parola richiesta.
+
+L'eccezione E_IncorrectFilterMethod viene lanciata quando il metodo del filtro è vuoto.
+
+L'eccezione E_Between viene lanciata quando i parametri del filtro Between non sono corretti.
+
+Esempi di gestione delle eccezioni:
+
+* [Nessun follower rispetta il filtro](https://github.com/GiovanniGiacometti/ProgettoSpringApp/blob/master/progetto/Screen/NessunaParola.png)
+
+* [Parola non trovata]
+
+* [Metodo del filtro vuoto]
+
+* [Parametri del filtro between non corretti]
+
+### SEQUENZE
+Di seguito riportiamo i diagrammi delle sequenze che dettagliano il funzionamento delle chiamate.
+
+#### getData :
+<img src ="Diagrammi%20UML/UML-Sequence%20Diagram/SpringBootApp-Sequence%20Diagram-getData.jpg" height = 400>
+
+#### getMetadata :
+<img src ="Diagrammi%20UML/UML-Sequence%20Diagram/getMetadata.jpg" height = 400>
+
+#### getDataWithFilter :
+<img src ="Diagrammi%20UML/UML-Sequence%20Diagram/getDataWithFilter.jpg" height = 400>
+
+#### getStats :
+<img src ="Diagrammi%20UML/UML-Sequence%20Diagram/getStats.jpg" height = 400>
+
+#### getStatsWithFilter :
+<img src ="Diagrammi%20UML/UML-Sequence%20Diagram/getStatsWithFilter.jpg" height = 400>
+
+## Autori
+* **Giovanni Giacometti** 
+* **Lorenzo Pollonara** 
+
+#### Suddivisione del lavoro :
+Abbiamo pensato di dividere lo sviluppo del progetto in tre fasi. Nella prima abbiamo delineato la struttura generale del progetto, lavorando insieme mediante videochiamate e condivisione dello schermo di lavoro. Ci siamo poi suddivisi il lavoro di implementazione vera e propria del codice, versionandolo su GitHub, per poi concludere insieme con la stesura del ReadMe. 
+
+La suddivisione del lavoro è stata la seguente:
+* Giacometti ha lavorato maggiormente alle eccezioni, ai filtri e ai diagrammi uml delle sequenze.
+* Pollonara si è occupato maggiormente delle statistiche, della struttura del package service, del javadoc e del diagramma dei casi d'uso.
+
+In ogni caso il lavoro individuale è stato costantemente sottoposto alla revisione dell'altro, apportando di volta in volta tutte le modifiche ritenute necessarie.
 
