@@ -142,11 +142,11 @@ Esempi di gestione delle eccezioni:
 
 * [Nessun follower rispetta il filtro](https://github.com/GiovanniGiacometti/ProgettoSpringApp/blob/master/progetto/Screen/NessunaParola.png)
 
-* [Parola non trovata]
+* [Parola non trovata](https://github.com/GiovanniGiacometti/ProgettoSpringApp/blob/master/progetto/Screen/NoWordFound.png)
 
-* [Metodo del filtro vuoto]
+* [Metodo del filtro vuoto](https://github.com/GiovanniGiacometti/ProgettoSpringApp/blob/master/progetto/Screen/MetodoFiltroVuoto.png)
 
-* [Parametri del filtro between non corretti]
+* [Parametri del filtro between non corretti](https://github.com/GiovanniGiacometti/ProgettoSpringApp/blob/master/progetto/Screen/ParametriBetweenNonCorretti.png)
 
 ### SEQUENZE
 Di seguito riportiamo i diagrammi delle sequenze che dettagliano il funzionamento delle chiamate.
@@ -171,11 +171,13 @@ Di seguito riportiamo i diagrammi delle sequenze che dettagliano il funzionament
 * **Lorenzo Pollonara** 
 
 #### Suddivisione del lavoro :
-Abbiamo pensato di dividere lo sviluppo del progetto in tre fasi. Nella prima abbiamo delineato la struttura generale del progetto, lavorando insieme mediante videochiamate e condivisione dello schermo di lavoro. Ci siamo poi suddivisi il lavoro di implementazione vera e propria del codice, versionandolo su GitHub, per poi concludere insieme con la stesura del ReadMe. 
+Abbiamo pensato di dividere lo sviluppo del progetto in tre fasi. Nella prima abbiamo delineato la struttura generale del progetto, lavorando insieme mediante videochiamate e condivisione dello schermo di lavoro. Ci siamo poi suddivisi l'implementazione vera e propria del codice, versionandolo su GitHub, per poi concludere insieme con la stesura del ReadMe. 
 
 La suddivisione del lavoro è stata la seguente:
 * Giacometti ha lavorato maggiormente alle eccezioni, ai filtri e ai diagrammi uml delle sequenze.
-* Pollonara si è occupato maggiormente delle statistiche, della struttura del package service, del javadoc e del diagramma dei casi d'uso.
+* Pollonara si è occupato maggiormente delle statistiche, della struttura dei test, del javadoc e del diagramma dei casi d'uso.
+
+Tutto il resto, ovvero i package model, database, controller, service e i diagrammi delle classi, sono stati elaborati insieme.
 
 In ogni caso il lavoro individuale è stato costantemente sottoposto alla revisione dell'altro, apportando di volta in volta tutte le modifiche ritenute necessarie.
 
